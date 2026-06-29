@@ -1,26 +1,82 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --vistta-navy: #1E3A4A;
+  --vistta-teal: #1A6B8A;
+  --vistta-cyan: #3ABFDF;
+  --vistta-silver: #8FA8B5;
+  --vistta-gold: #C9A96E;
+  --vistta-gold-light: #EDD9AC;
+  --vistta-white: #FFFFFF;
+  --vistta-offwhite: #F5F8FA;
+  --vistta-grey: #C8D8DF;
+  
+  --background: var(--vistta-white);
+  --foreground: var(--vistta-navy);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-brand-navy: var(--vistta-navy);
+  --color-brand-teal: var(--vistta-teal);
+  --color-brand-cyan: var(--vistta-cyan);
+  --color-brand-silver: var(--vistta-silver);
+  --color-brand-gold: var(--vistta-gold);
+  --color-brand-goldLight: var(--vistta-gold-light);
+  --color-brand-white: var(--vistta-white);
+  --color-brand-offwhite: var(--vistta-offwhite);
+  --color-brand-grey: var(--vistta-grey);
+  
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-heading: var(--font-raleway), sans-serif;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Glass Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-reflection {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-reflection::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.glass-reflection:hover::after {
+  transform: rotate(30deg) translate(50%, 50%);
 }
