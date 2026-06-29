@@ -24,27 +24,28 @@ export default function ProjectsPage() {
 
   return (
     <>
-
-      <main className="w-full pt-32 pb-24 bg-brand-white min-h-screen">
-        <div className="container mx-auto px-6 md:px-12">
+      <main className="w-full pt-40 md:pt-56 pb-24 bg-brand-pastel min-h-screen">
+        <div className="container mx-auto px-4 md:px-8">
           {/* Header */}
-          <div className="max-w-4xl mb-16">
-            <span className="text-brand-silver text-sm uppercase tracking-[0.2em] mb-4 block">Portfolio</span>
-            <h1 className="text-5xl md:text-7xl font-heading font-extrabold text-brand-navy leading-tight">
-              Selected Works
+          <div className="max-w-4xl mb-16 px-2">
+            <span className="inline-block rounded-full bg-brand-gold/10 px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-bold text-brand-gold mb-8">
+              Portfolio
+            </span>
+            <h1 className="text-[clamp(3.5rem,8vw,8rem)] font-heading font-extrabold text-brand-navy leading-[0.95] tracking-tight">
+              Selected <span className="text-brand-cyan">Works</span>
             </h1>
           </div>
 
           {/* Filters */}
-          <div className="flex flex-wrap gap-4 mb-16 border-b border-brand-grey/30 pb-6">
+          <div className="flex flex-wrap gap-4 mb-16 border-b border-brand-navy/10 pb-6 px-2">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-6 py-2.5 rounded-full text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 ${
                   activeCategory === category 
-                    ? "bg-brand-navy text-white" 
-                    : "bg-brand-offwhite text-brand-navy hover:bg-brand-grey/20"
+                    ? "bg-brand-cyan text-brand-navy shadow-lg shadow-brand-cyan/20" 
+                    : "bg-brand-navy/5 text-brand-navy hover:bg-brand-gold/10 hover:text-brand-gold"
                 }`}
               >
                 {category}
@@ -53,33 +54,35 @@ export default function ProjectsPage() {
           </div>
 
           {/* Grid */}
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             <AnimatePresence>
               {filteredProjects.map((project) => (
                 <motion.div
                   key={project.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.4 }}
-                  className="group relative aspect-[4/5] overflow-hidden rounded-sm cursor-pointer"
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+                  className="group relative rounded-[2rem] bg-brand-pastelCard p-2 ring-1 ring-brand-navy/5 shadow-sm block aspect-[4/5] hover:ring-brand-cyan/50 transition-all duration-700"
                 >
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  <div className="absolute bottom-0 left-0 w-full p-8 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                    <span className="text-brand-cyan text-sm uppercase tracking-wider mb-2 block font-medium">
-                      {project.category}
-                    </span>
-                    <h3 className="text-2xl font-heading font-bold text-white mb-1">
-                      {project.title}
-                    </h3>
-                    <p className="text-white/80 text-sm">{project.location}</p>
+                  <div className="relative w-full h-full block rounded-[1.5rem] overflow-hidden bg-brand-navy/5">
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] ease-[0.32,0.72,0,1] group-hover:scale-105 opacity-90 mix-blend-multiply group-hover:opacity-100 grayscale-[0.2] group-hover:grayscale-0"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/20 to-transparent opacity-60 group-hover:opacity-90 group-hover:from-brand-teal/90 transition-all duration-500" />
+                    
+                    <div className="absolute bottom-0 left-0 w-full p-8 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 ease-[0.32,0.72,0,1]">
+                      <span className="text-brand-gold text-xs font-bold uppercase tracking-[0.2em] mb-2 block">
+                        {project.category}
+                      </span>
+                      <h3 className="text-2xl md:text-3xl font-heading font-extrabold text-white mb-1 tracking-tight">
+                        {project.title}
+                      </h3>
+                      <p className="text-white/80 font-mono text-xs">{project.location}</p>
+                    </div>
                   </div>
                 </motion.div>
               ))}

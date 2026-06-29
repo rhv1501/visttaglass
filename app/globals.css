@@ -1,17 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --vistta-navy: #1E3A4A;
+  --vistta-navy: #0A192F;
   --vistta-teal: #1A6B8A;
   --vistta-cyan: #3ABFDF;
   --vistta-silver: #8FA8B5;
   --vistta-gold: #C9A96E;
   --vistta-gold-light: #EDD9AC;
   --vistta-white: #FFFFFF;
-  --vistta-offwhite: #F5F8FA;
-  --vistta-grey: #C8D8DF;
   
-  --background: var(--vistta-white);
+  /* Soft Pastel Aesthetics */
+  --vistta-pastel-bg: #FDFCF0; /* Premium Milky White */
+  --vistta-pastel-card: #FFFFFF;
+  --vistta-pastel-border: rgba(10, 25, 47, 0.05);
+
+  --background: var(--vistta-pastel-bg);
   --foreground: var(--vistta-navy);
 }
 
@@ -25,11 +28,15 @@
   --color-brand-gold: var(--vistta-gold);
   --color-brand-goldLight: var(--vistta-gold-light);
   --color-brand-white: var(--vistta-white);
-  --color-brand-offwhite: var(--vistta-offwhite);
-  --color-brand-grey: var(--vistta-grey);
+  --color-brand-pastel: var(--vistta-pastel-bg);
+  --color-brand-pastelCard: var(--vistta-pastel-card);
   
-  --font-sans: Arial, Helvetica, sans-serif;
-  --font-heading: var(--font-raleway), sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
+  --font-heading: var(--font-bricolage), sans-serif;
+  
+  /* Fix Bricolage Grotesque massive width by capping extrabold */
+  --font-weight-extrabold: 700;
+  --font-weight-black: 700;
 }
 
 body {
@@ -42,41 +49,43 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+  letter-spacing: -0.02em;
 }
 
-/* Glass Utilities */
+/* Custom Easing for Awwwards Vibe */
+.ease-premium {
+  transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Glass & Pastel Utilities */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--vistta-pastel-border);
 }
 
-.glass-reflection {
-  position: relative;
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
   overflow: hidden;
 }
-
-.glass-reflection::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    to bottom right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0) 40%,
-    rgba(255, 255, 255, 0.2) 50%,
-    rgba(255, 255, 255, 0) 60%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  transform: rotate(30deg);
-  transition: transform 0.5s ease;
+.lenis.lenis-smooth iframe {
   pointer-events: none;
-}
-
-.glass-reflection:hover::after {
-  transform: rotate(30deg) translate(50%, 50%);
 }

@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
-import { Raleway } from "next/font/google";
+import { Bricolage_Grotesque, Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Cursor from "@/components/Cursor";
 import Navbar from "@/components/Navbar";
-const raleway = Raleway({
-  variable: "--font-raleway",
+
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -38,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${raleway.variable} h-full antialiased`}>
+    <html lang="en" className={`${bricolage.variable} ${inter.variable} h-full antialiased`}>
       <head>
         <script
           type="application/ld+json"
@@ -69,6 +76,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <div className="noise-overlay" />
         <Cursor />
         <SmoothScroll>
           <Navbar />

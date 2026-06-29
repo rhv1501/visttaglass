@@ -5,12 +5,11 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MagneticButton from "./MagneticButton";
-import { ArrowRight } from "lucide-react";
 
 const navLinks = [
   { name: "Services", path: "/services" },
   { name: "Projects", path: "/projects" },
-  { name: "Studio", path: "/about" },
+  { name: "About", path: "/about" },
   { name: "Blog", path: "/blog" },
 ];
 
@@ -47,9 +46,9 @@ export default function Navbar() {
         Mixes into the background seamlessly at top, becomes a premium glass strip on scroll.
       */}
       <motion.nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ease-[0.16,1,0.3,1] ${
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ease-[0.32,0.72,0,1] ${
           scrolled && !menuOpen 
-            ? "py-4 bg-[#0a1118]/70 backdrop-blur-2xl border-b border-white/10" 
+            ? "py-4 bg-brand-pastel/80 backdrop-blur-2xl border-b border-brand-navy/5 shadow-sm" 
             : "py-8 bg-transparent"
         }`}
       >
@@ -57,11 +56,11 @@ export default function Navbar() {
           {/* Logo */}
           <Link 
             href="/" 
-            className={`relative z-[60] text-xl md:text-2xl font-bold tracking-tighter transition-colors duration-500 ${
-              menuOpen ? "text-white" : (scrolled ? "text-white" : "text-brand-navy mix-blend-difference invert")
+            className={`relative z-[60] text-xl md:text-2xl font-heading font-extrabold tracking-tighter transition-colors duration-500 ${
+              menuOpen ? "text-white" : "text-brand-navy"
             }`}
           >
-            VISTTA<span className="text-brand-teal">.</span>
+            VISTTA<span className="text-brand-gold">.</span>
           </Link>
 
           {/* Desktop Nav (Hidden on Mobile) */}
@@ -71,27 +70,37 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.path}
-                  className="group relative overflow-hidden text-sm font-bold tracking-widest uppercase text-white mix-blend-difference"
+                  className={`group relative overflow-hidden text-sm font-bold tracking-[0.2em] uppercase transition-colors duration-500 ${
+                    menuOpen ? "text-white" : "text-brand-navy"
+                  }`}
                 >
                   <span className="relative z-10 block transition-transform duration-500 group-hover:-translate-y-full">
                     {item.name}
                   </span>
-                  <span className="absolute inset-0 z-10 block translate-y-full transition-transform duration-500 group-hover:translate-y-0 text-brand-teal">
+                  <span className="absolute inset-0 z-10 block translate-y-full transition-transform duration-500 group-hover:translate-y-0 text-brand-cyan">
                     {item.name}
                   </span>
                 </Link>
               ))}
             </div>
             
-            <div className="w-[1px] h-4 bg-white/20 mix-blend-difference" />
+            <div className={`w-[1px] h-4 transition-colors duration-500 ${menuOpen ? "bg-white/20" : "bg-brand-navy/20"}`} />
 
             <MagneticButton strength={0.2}>
               <Link
                 href="/contact"
-                className="relative flex items-center justify-center px-6 py-2.5 overflow-hidden rounded-full border border-white/20 text-white text-xs font-bold uppercase tracking-widest group bg-white/5 backdrop-blur-sm mix-blend-difference"
+                className={`relative flex items-center justify-center px-8 py-3 overflow-hidden rounded-full text-xs font-bold uppercase tracking-[0.2em] group backdrop-blur-sm transition-all duration-500 ${
+                  menuOpen 
+                    ? "border border-white/20 text-white bg-white/5" 
+                    : "border border-brand-navy/10 text-brand-navy bg-brand-navy/5 hover:border-transparent hover:shadow-lg hover:shadow-brand-cyan/20"
+                }`}
               >
-                <span className="absolute inset-0 w-full h-full bg-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
-                <span className="relative z-10 group-hover:text-[#0A1118] transition-colors duration-500">Inquire</span>
+                <span className={`absolute inset-0 w-full h-full transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.32,0.72,0,1] ${
+                  menuOpen ? "bg-white" : "bg-gradient-to-r from-brand-teal to-brand-cyan"
+                }`} />
+                <span className={`relative z-10 transition-colors duration-500 ${
+                  menuOpen ? "group-hover:text-brand-navy" : "group-hover:text-white"
+                }`}>Inquire</span>
               </Link>
             </MagneticButton>
           </div>
@@ -103,12 +112,12 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(!menuOpen)}
                 className={`w-12 h-12 rounded-full flex flex-col items-center justify-center gap-1.5 transition-colors duration-500 ${
                   menuOpen 
-                    ? "bg-white/10" 
-                    : (scrolled ? "bg-white/10" : "bg-brand-navy mix-blend-difference invert")
+                    ? "bg-white/10 text-brand-gold" 
+                    : "bg-brand-navy/5 text-brand-navy border border-brand-navy/10 hover:bg-brand-gold/10"
                 }`}
               >
-                <span className={`w-5 h-[1.5px] bg-current transition-transform duration-500 ${menuOpen ? "rotate-45 translate-y-[3.5px] text-white" : "text-white"}`} />
-                <span className={`w-5 h-[1.5px] bg-current transition-transform duration-500 ${menuOpen ? "-rotate-45 -translate-y-[3.5px] text-white" : "text-white"}`} />
+                <span className={`w-5 h-[1.5px] bg-current transition-transform duration-500 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
+                <span className={`w-5 h-[1.5px] bg-current transition-transform duration-500 ${menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
               </button>
             </MagneticButton>
           </div>
@@ -125,20 +134,20 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { delay: 0.4 } }}
-            className="fixed inset-0 z-40 bg-[#0A1118]/40 backdrop-blur-sm"
+            className="fixed inset-0 z-40 bg-brand-navy/60 backdrop-blur-md"
             onClick={() => setMenuOpen(false)}
           >
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: "0%" }}
               exit={{ x: "100%" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute top-0 right-0 w-full md:w-[480px] h-full bg-[#0A1118] border-l border-white/10 flex flex-col shadow-2xl"
+              transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+              className="absolute top-0 right-0 w-full md:w-[480px] h-full bg-brand-navy border-l border-white/5 flex flex-col shadow-2xl"
               onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
             >
               {/* Menu Header Area (to push content down below the nav line) */}
               <div className="h-28 md:h-32 border-b border-white/5 flex items-end px-8 md:px-12 pb-6 md:pb-8">
-                <span className="text-white/30 font-mono text-xs uppercase tracking-widest">Navigation</span>
+                <span className="text-brand-gold/50 font-mono text-[10px] uppercase tracking-[0.3em]">Navigation</span>
               </div>
 
               {/* Main Links */}
@@ -149,15 +158,15 @@ export default function Navbar() {
                       initial={{ y: "100%" }}
                       animate={{ y: "0%" }}
                       exit={{ y: "100%" }}
-                      transition={{ duration: 0.6, delay: 0.1 + (i * 0.05), ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.6, delay: 0.1 + (i * 0.05), ease: [0.32, 0.72, 0, 1] }}
                     >
                       <Link 
                         href={link.path}
                         className={`group flex items-center gap-4 text-[clamp(2.5rem,8vw,3.5rem)] font-heading font-extrabold tracking-tighter ${
-                          pathname === link.path ? "text-white" : "text-white/40 hover:text-white"
+                          pathname === link.path ? "text-white" : "text-white/40 hover:text-brand-cyan"
                         } transition-colors duration-300`}
                       >
-                        <span className="text-brand-teal text-sm font-mono font-normal opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300">
+                        <span className="text-brand-gold text-sm font-mono font-normal opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300">
                           0{i + 1}
                         </span>
                         {link.name}
@@ -175,9 +184,8 @@ export default function Navbar() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="p-8 md:p-12 border-t border-white/5 bg-white/[0.02]"
               >
-                <span className="text-white/30 font-mono text-[10px] uppercase tracking-[0.2em] mb-4 block">Direct Desk</span>
-                <a href="tel:+919840396462" className="text-white hover:text-brand-teal transition-colors font-bold text-xl block mb-2">+91 98403 96462</a>
-                <a href="mailto:hello@visttaglass.com" className="text-white/50 hover:text-brand-teal transition-colors text-sm">hello@visttaglass.com</a>
+                <span className="text-brand-cyan/50 font-mono text-[10px] uppercase tracking-[0.2em] mb-4 block">Direct Desk</span>
+                <a href="mailto:hello@visttaglass.com" className="text-white hover:text-brand-cyan transition-colors text-sm font-bold tracking-wide">hello@visttaglass.com</a>
               </motion.div>
 
             </motion.div>

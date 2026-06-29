@@ -13,85 +13,84 @@ const services = [
 ];
 
 export default function ServicesShowcase() {
-  const [activeImg, setActiveImg] = useState(services[0].img);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section id="services" className="w-full relative min-h-screen bg-[#0A1118] overflow-hidden py-32 flex flex-col justify-center">
-      {/* Fixed Full-Bleed Background Images */}
+    <section id="services" className="w-full relative min-h-screen bg-brand-pastel py-32 md:py-48 flex flex-col justify-center overflow-hidden transition-colors duration-700">
+      
+      {/* Background Image Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={activeImg}
-            src={activeImg}
-            alt="Service showcase"
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 0.3, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0 w-full h-full object-cover mix-blend-luminosity"
-          />
+        <AnimatePresence>
+          {hoveredIndex !== null && (
+            <motion.div
+              key={hoveredIndex}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+              className="absolute inset-0 w-full h-full"
+            >
+              <img 
+                src={services[hoveredIndex].img} 
+                alt="Service Background" 
+                className="w-full h-full object-cover grayscale-[0.2]"
+              />
+              <div className="absolute inset-0 bg-brand-navy/80 mix-blend-multiply" />
+              <div className="absolute inset-0 bg-gradient-to-b from-brand-pastel/80 via-transparent to-brand-pastel/80" />
+            </motion.div>
+          )}
         </AnimatePresence>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1118] via-transparent to-[#0A1118]" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-6 md:px-12 flex flex-col items-center">
-        <div className="w-full max-w-7xl">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24">
-            <div>
-              <span className="text-white/40 text-sm uppercase tracking-[0.3em] mb-4 block font-bold">Capabilities</span>
-              <h2 className="text-3xl md:text-5xl font-heading font-light text-white max-w-2xl">
-                Engineering Light &amp; Space.
-              </h2>
+      <div className="container relative z-10 mx-auto px-4 md:px-8 h-full flex flex-col justify-between">
+        
+        {/* Header */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24">
+          <div className="max-w-2xl transition-colors duration-500">
+            <span className={`inline-block rounded-full px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-bold mb-6 transition-colors duration-500 ${hoveredIndex !== null ? 'bg-brand-cyan/20 text-brand-cyan' : 'bg-brand-gold/10 text-brand-gold'}`}>
+              Capabilities
+            </span>
+            <h2 className={`text-[clamp(2.5rem,6vw,5rem)] font-heading font-extrabold leading-[1.05] tracking-tight transition-colors duration-500 ${hoveredIndex !== null ? 'text-white' : 'text-brand-navy'}`}>
+              Engineering Light <br /> &amp; <span className={hoveredIndex !== null ? 'text-brand-gold' : 'text-brand-cyan'}>Space.</span>
+            </h2>
+          </div>
+          <Link href="/services" className={`mt-8 md:mt-0 flex items-center gap-3 uppercase tracking-[0.1em] text-xs font-bold group transition-colors duration-500 ${hoveredIndex !== null ? 'text-white' : 'text-brand-navy'}`}>
+            <span className={`relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 group-hover:after:origin-bottom-left group-hover:after:scale-x-100 after:transition-transform after:duration-500 pb-1 ${hoveredIndex !== null ? 'after:bg-white' : 'after:bg-brand-navy'}`}>
+              Explore All Services
+            </span>
+            <div className={`w-8 h-8 rounded-full border flex items-center justify-center transition-colors duration-500 ${hoveredIndex !== null ? 'border-white/20 group-hover:bg-brand-cyan group-hover:border-brand-cyan' : 'border-brand-navy/20 group-hover:bg-brand-cyan group-hover:border-brand-cyan'}`}>
+              <ArrowRight className="w-3 h-3 group-hover:text-white transition-colors" />
             </div>
-            <Link href="/services" className="mt-8 md:mt-0 flex items-center gap-3 text-white uppercase tracking-wider text-sm font-bold group">
-              <span className="relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-white after:origin-bottom-right after:scale-x-0 group-hover:after:origin-bottom-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 pb-1">
-                Explore All Services
-              </span>
-              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
+          </Link>
+        </div>
 
-          {/* Immersive Typographic List */}
-          <div className="flex flex-col w-full border-t border-white/10">
-            {services.map((service, index) => (
-              <Link
-                key={service.id}
-                href={service.link}
-                onMouseEnter={() => {
-                  setActiveImg(service.img);
-                  setHoveredIndex(index);
-                }}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className="group relative w-full py-8 md:py-12 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between"
-              >
-                <div className="flex items-center gap-8 md:gap-16">
-                  <span className={`text-sm md:text-lg font-mono transition-colors duration-500 ${hoveredIndex === index ? "text-brand-cyan" : "text-white/30"}`}>
-                    {service.id}
-                  </span>
-                  <motion.h3 
-                    className={`text-5xl md:text-7xl lg:text-[7rem] font-heading font-extrabold leading-none tracking-tighter transition-all duration-700 ease-[0.16,1,0.3,1] ${
-                      hoveredIndex !== null && hoveredIndex !== index ? "text-white/10" : "text-white"
-                    }`}
-                  >
-                    {service.title}
-                  </motion.h3>
-                </div>
-                
-                <div className="hidden md:flex overflow-hidden">
-                  <motion.div
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: hoveredIndex === index ? 0 : -20, opacity: hoveredIndex === index ? 1 : 0 }}
-                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex items-center gap-4 text-brand-cyan font-bold tracking-widest uppercase text-sm"
-                  >
-                    <span>View Project Spec</span>
-                    <ArrowRight className="w-6 h-6" />
-                  </motion.div>
-                </div>
-              </Link>
-            ))}
-          </div>
+        {/* Interactive Typographic List */}
+        <div className="w-full flex flex-col border-t border-brand-navy/10 relative z-20">
+          {services.map((service, index) => (
+            <Link 
+              key={service.id} 
+              href={service.link}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className="group flex flex-col md:flex-row md:items-center justify-between py-8 md:py-12 border-b border-brand-navy/10 relative transition-colors"
+            >
+              {/* Dynamic Line on Hover */}
+              <div className="absolute bottom-[-1px] left-0 w-0 h-[1px] bg-brand-cyan group-hover:w-full transition-all duration-700 ease-[0.32,0.72,0,1]" />
+
+              <div className="flex items-center gap-8 md:gap-16">
+                <span className={`text-sm font-mono transition-colors duration-500 ${hoveredIndex !== null && hoveredIndex !== index ? 'text-white/30' : hoveredIndex === index ? 'text-brand-cyan' : 'text-brand-navy/40'}`}>
+                  {service.id}
+                </span>
+                <h3 className={`text-[clamp(2rem,4vw,5rem)] font-heading font-bold tracking-tight transition-all duration-500 transform group-hover:translate-x-4 ${hoveredIndex !== null && hoveredIndex !== index ? 'text-white/30' : hoveredIndex === index ? 'text-white' : 'text-brand-navy group-hover:text-brand-navy'}`}>
+                  {service.title}
+                </h3>
+              </div>
+              
+              <div className="mt-6 md:mt-0 opacity-0 transform -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 hidden md:flex items-center justify-center w-16 h-16 rounded-full bg-brand-cyan/20 backdrop-blur-md border border-brand-cyan/30">
+                <ArrowRight className="w-6 h-6 text-brand-cyan -rotate-45" />
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

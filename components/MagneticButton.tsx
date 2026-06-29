@@ -33,7 +33,7 @@ export default function MagneticButton({ children, className = "", strength = 0.
       onMouseLeave={reset}
       animate={{ x: position.x, y: position.y }}
       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
-      className={`relative inline-block cursor-pointer ${className}`}
+      className={`magnetic relative inline-block cursor-pointer ${className}`}
     >
       {children}
     </motion.div>
