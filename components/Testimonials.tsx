@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const testimonials = [
@@ -39,7 +39,7 @@ export default function Testimonials() {
     setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
   };
 
-  const variants = {
+  const variants: Variants = {
     enter: (direction: number) => ({
       y: direction > 0 ? 60 : -60,
       opacity: 0,
@@ -51,7 +51,7 @@ export default function Testimonials() {
       filter: "blur(0px)",
       transition: {
         duration: 0.8,
-        ease: [0.32, 0.72, 0, 1]
+        ease: [0.32, 0.72, 0, 1] as const
       }
     },
     exit: (direction: number) => ({
@@ -60,7 +60,7 @@ export default function Testimonials() {
       filter: "blur(10px)",
       transition: {
         duration: 0.6,
-        ease: [0.32, 0.72, 0, 1]
+        ease: [0.32, 0.72, 0, 1] as const
       }
     })
   };
