@@ -49,26 +49,17 @@ export default function Cursor() {
         transition={{ type: "tween", ease: "backOut", duration: 0.1 }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-12 h-12 bg-transparent border-[1.5px] border-brand-navy/30 rounded-full pointer-events-none z-[9999] hidden md:flex items-center justify-center backdrop-blur-sm mix-blend-multiply"
+        className="fixed top-0 left-0 w-12 h-12 bg-transparent border-[1.5px] rounded-full pointer-events-none z-[9999] hidden md:flex items-center justify-center mix-blend-difference"
         animate={{
           x: mousePosition.x - 24,
           y: mousePosition.y - 24,
           scale: isHovering ? 1.5 : 1,
-          backgroundColor: isHovering ? "rgba(26, 107, 138, 0.1)" : "transparent",
-          borderColor: isHovering ? "rgba(26, 107, 138, 0)" : "rgba(10, 25, 47, 0.2)",
+          backgroundColor: "transparent",
+          borderColor: isHovering ? "rgba(255, 255, 255, 1)" : "rgba(255, 255, 255, 0.3)",
+          backdropFilter: isHovering ? "blur(0px)" : "blur(4px)",
         }}
         transition={{ type: "tween", ease: "backOut", duration: 0.4 }}
       >
-        <AnimatePresence>
-          {isHovering && (
-            <motion.div 
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 0 }}
-              className="w-1.5 h-1.5 bg-brand-cyan rounded-full"
-            />
-          )}
-        </AnimatePresence>
       </motion.div>
     </>
   );

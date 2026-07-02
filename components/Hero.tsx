@@ -33,6 +33,24 @@ export default function Hero() {
         </motion.div>
       </div>
 
+      {/* Fluted Glass Layer (Nothing OS Style) */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-10 backdrop-blur-[30px] bg-white/5 border-b border-white/10">
+        {/* Fluted Vertical Lines (Ribbed Glass Effect) */}
+        <div 
+          className="absolute inset-0 w-full h-full opacity-80"
+          style={{ 
+            backgroundImage: `linear-gradient(
+              90deg, 
+              rgba(255, 255, 255, 0.08) 0%, 
+              transparent 15%, 
+              rgba(0, 0, 0, 0.06) 85%, 
+              rgba(255, 255, 255, 0.12) 100%
+            )`,
+            backgroundSize: '32px 100%'
+          }}
+        />
+      </div>
+
       {/* Cinematic Center Content */}
       <motion.div 
         style={{ opacity: opacityText, scale: scaleText }}
