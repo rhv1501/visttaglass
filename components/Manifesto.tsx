@@ -14,7 +14,7 @@ export default function Manifesto() {
               The Manifesto
             </span>
             <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-white leading-[1.1] tracking-tight">
-              Leading interior and architectural glass solutions provider in Chennai.
+              Chennai&apos;s premier partner for visionary interior and architectural glass solutions.
             </h2>
           </div>
 
@@ -26,7 +26,7 @@ export default function Manifesto() {
               transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
               className="text-[clamp(1.5rem,3vw,2.5rem)] font-heading font-medium text-white leading-snug mb-12"
             >
-              We specialize in the supply and installation of aluminium windows, uPVC windows, glass doors, toughened glass, shower cubicles, glass partitions, office cubicles, railings, mirrors, and customized glass works for <span className="text-brand-gold">premium residential and commercial projects.</span>
+              We don&apos;t just install glass; we engineer light, space, and structure. Our expertise spans high-performance aluminium and uPVC windows, toughened glass doors, elegant shower cubicles, seamless office partitions, structural railings, bespoke mirrors, and customized glass works—meticulously crafted for <span className="text-brand-gold">premium residential and commercial projects.</span>
             </motion.p>
             
             <motion.p 
@@ -36,7 +36,7 @@ export default function Manifesto() {
               transition={{ duration: 0.8, delay: 0.1, ease: [0.32, 0.72, 0, 1] }}
               className="text-lg md:text-xl text-brand-silver leading-relaxed max-w-2xl font-light"
             >
-              We work closely with architects, interior designers, and builders to deliver high-quality, precision-finished solutions. From site measurement to fabrication and installation, we ensure professional service and timely completion. We undertake projects across Tamil Nadu and supply pan India.
+              Collaborating with leading architects, interior designers, and builders, we transform ambitious blueprints into flawless reality. We take full ownership of the process—from exact site measurements to precision fabrication and expert installation—ensuring zero compromises on quality. Based in Chennai, executing across Tamil Nadu, and supplying Pan India.
             </motion.p>
           </div>
 

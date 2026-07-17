@@ -283,6 +283,122 @@ export const serviceCategories: ServiceCategory[] = [
         image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop"
       }
     ]
+  },
+  {
+    title: "Aluminium Systems",
+    slug: "aluminium-systems",
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop",
+    description: "Premium aluminium profiles, partitions, and sliding systems for modern spaces.",
+    services: [
+      {
+        slug: "kitchen-profiles",
+        title: "Kitchen Profiles",
+        description: "Sleek and durable aluminium profiles for modern modular kitchens.",
+        heading: "Premium Kitchen Profiles",
+        serviceName: "Kitchen Profiles",
+        content: "Upgrade your kitchen cabinetry with our ultra-slim, high-strength aluminium profiles. Designed for seamless integration, they offer a clean, contemporary aesthetic while ensuring long-lasting durability for modular kitchen setups.",
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+      },
+      {
+        slug: "wardrobe-profiles",
+        title: "Wardrobe Profiles - Sliding / Openable",
+        description: "Elegant aluminium profiles for sliding and openable wardrobe systems.",
+        heading: "Architectural Wardrobe Profiles",
+        serviceName: "Wardrobe Profiles",
+        content: "Create stunning, space-saving wardrobes with our advanced aluminium profiles. Available in both smooth sliding and traditional openable configurations, these systems provide a flawless finish and effortless operation for luxury bedroom interiors.",
+        image: "https://images.unsplash.com/photo-1549488344-c102a0a2df33?q=80&w=2070&auto=format&fit=crop"
+      },
+      {
+        slug: "aluminium-internal-partition",
+        title: "Aluminium Internal Partition",
+        description: "Minimalist aluminium framed glass partitions for offices and homes.",
+        heading: "Minimalist Internal Partitions",
+        serviceName: "Aluminium Internal Partition",
+        content: "Define your interior spaces without sacrificing natural light. Our slimline aluminium internal partitions offer a sleek, industrial-chic aesthetic perfect for modern office environments and open-plan residential layouts.",
+        image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop"
+      },
+      {
+        slug: "telescopic-sliding-system",
+        title: "Telescopic Sliding System",
+        description: "Space-saving telescopic sliding doors for wide architectural openings.",
+        heading: "Advanced Telescopic Sliding Systems",
+        serviceName: "Telescopic Sliding System",
+        content: "Maximize your space with our synchronized telescopic sliding systems. Engineered to stack multiple glass panels neatly to one side, this system is ideal for creating wide, uninterrupted walkways in commercial and premium residential spaces.",
+        image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop"
+      },
+      {
+        slug: "syncro-sliding-system",
+        title: "Syncro Sliding System",
+        description: "Synchronized dual-door sliding systems for grand, effortless entryways.",
+        heading: "Synchronized Sliding Doors",
+        serviceName: "Syncro Sliding System",
+        content: "Experience the elegance of synchronized motion. When you open one door, the other opens simultaneously in the opposite direction. Perfect for grand conference rooms, master suites, and luxury retail entrances.",
+        image: "https://images.unsplash.com/photo-1541888042459-715569420dc8?q=80&w=2070&auto=format&fit=crop"
+      },
+      {
+        slug: "bifolding-system",
+        title: "Bifolding System",
+        description: "Folding aluminium door systems for seamless indoor-outdoor living.",
+        heading: "Architectural Bifolding Systems",
+        serviceName: "Bifolding System",
+        content: "Completely open up your living space to the outdoors. Our premium bifolding systems accordion-fold away seamlessly, offering high thermal performance, weather resistance, and panoramic views when fully open.",
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+      },
+      {
+        slug: "exterior-windows-systems",
+        title: "Exterior Windows Systems",
+        description: "High-performance aluminium exterior windows for modern facades.",
+        heading: "Premium Exterior Window Systems",
+        serviceName: "Exterior Windows Systems",
+        content: "Engineered for superior weather resistance and thermal efficiency, our exterior aluminium window systems provide sleek sightlines and robust security, making them the ultimate choice for contemporary architectural facades.",
+        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+      },
+      {
+        slug: "aluminium-shower-cubicle",
+        title: "Aluminium Shower Cubicle",
+        description: "Framed and semi-frameless aluminium shower enclosures.",
+        heading: "Aluminium Framed Shower Cubicles",
+        serviceName: "Aluminium Shower Cubicle",
+        content: "Combine striking structural lines with water-tight performance. Our aluminium framed shower cubicles offer a modern, grid-like aesthetic (including popular matte black finishes) for luxury bathroom renovations.",
+        image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop"
+      },
+      {
+        slug: "aluminium-railing",
+        title: "Aluminium Railing",
+        description: "Durable, maintenance-free aluminium balustrades and railings.",
+        heading: "Architectural Aluminium Railings",
+        serviceName: "Aluminium Railing",
+        content: "Secure your balconies and staircases with our heavy-duty aluminium railing systems. Offering unparalleled structural integrity and a rust-free lifespan, they provide a clean, modern edge to any exterior or interior.",
+        image: "https://images.unsplash.com/photo-1545083036-b179caebecab?q=80&w=2070&auto=format&fit=crop"
+      },
+      {
+        slug: "aluminium-louver-doors",
+        title: "Aluminium Louver Doors",
+        description: "Ventilated aluminium louver systems for utility and architectural styling.",
+        heading: "Functional Aluminium Louver Doors",
+        serviceName: "Aluminium Louver Doors",
+        content: "Ensure continuous airflow while maintaining privacy and security. Our precision-engineered aluminium louver doors are perfect for utility rooms, HVAC enclosures, and striking architectural exterior accents.",
+        image: "https://images.unsplash.com/photo-1600566753086-00f18ef02ce4?q=80&w=2070&auto=format&fit=crop"
+      },
+      {
+        slug: "aluminium-french-windows",
+        title: "Aluminium French Windows",
+        description: "Classic French window styling with modern aluminium engineering.",
+        heading: "Modern Aluminium French Windows",
+        serviceName: "Aluminium French Windows",
+        content: "Bring timeless elegance into the modern era. Our aluminium French windows offer the classic divided-light aesthetic combined with the strength, slim profiles, and energy efficiency of contemporary aluminium extrusion.",
+        image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop"
+      },
+      {
+        slug: "aluminium-pocket-sliding-door",
+        title: "Aluminium Pocket Sliding Door",
+        description: "Disappearing pocket doors for ultimate space efficiency.",
+        heading: "Hidden Pocket Sliding Doors",
+        serviceName: "Aluminium Pocket Sliding Door",
+        content: "Maximize your floor plan with doors that vanish entirely into the wall. Our aluminium pocket sliding systems utilize premium track hardware for smooth, silent operation, creating wide-open transitions between rooms.",
+        image: "https://images.unsplash.com/photo-1541888042459-715569420dc8?q=80&w=2070&auto=format&fit=crop"
+      }
+    ]
   }
 ];
 

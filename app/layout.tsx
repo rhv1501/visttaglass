@@ -21,6 +21,16 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Vistta Glass | Premium Architectural Glass Solutions in Chennai",
   description: "Vistta Glass is a leading interior and architectural glass solutions provider in Chennai. We specialize in aluminium windows, uPVC windows, glass doors, toughened glass, shower cubicles, partitions, office cubicles, railings, and mirrors.",
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png" },
+    ],
+  },
   openGraph: {
     title: "Vistta Glass | Premium Architectural Glass Solutions",
     description: "Precision crafted glass for modern spaces in Chennai and Tamil Nadu.",

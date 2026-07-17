@@ -3,16 +3,17 @@
 import { motion } from "framer-motion";
 
 const partners = [
-  "Saint-Gobain",
-  "Dorma",
-  "Ozone",
-  "Schüco",
-  "Modiguard",
-  "Hettich",
-  "Hafele",
-  "Glaverbel",
-  "Asahi",
-  "Kinlong",
+  "Geetam",
+  "ITC Grand Chola",
+  "Honda",
+  "Go Colours",
+  "Axis Bank",
+  "Medimix",
+  "MGM Hospital",
+  "Vendi Jewellery",
+  "Cream Story",
+  "SPR Construction",
+  "Amara",
 ];
 
 export default function PartnersMarquee() {
@@ -20,7 +21,7 @@ export default function PartnersMarquee() {
     <section className="w-full py-24 bg-brand-pastel overflow-hidden flex flex-col justify-center">
       <div className="container mx-auto px-6 md:px-12 mb-16 text-center">
         <span className="inline-block rounded-full bg-brand-navy/5 px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-bold text-brand-navy">
-          Powered by Industry Leaders
+          Brands We Have Worked With
         </span>
       </div>
       

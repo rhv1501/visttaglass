@@ -56,11 +56,13 @@ export default function Navbar() {
           {/* Logo */}
           <Link 
             href="/" 
-            className={`relative z-[60] text-xl md:text-2xl font-heading font-extrabold tracking-tighter transition-colors duration-500 ${
-              menuOpen ? "text-white" : "text-brand-navy"
-            }`}
+            className="relative z-[60] flex items-center"
           >
-            VISTTA<span className="text-brand-gold">.</span>
+            <img 
+              src="/logo.png" 
+              alt="Vistta Glass" 
+              className={`h-12 md:h-16 w-auto object-contain transition-all duration-500 ${menuOpen ? "brightness-0 invert" : ""}`}
+            />
           </Link>
 
           {/* Desktop Nav (Hidden on Mobile) */}

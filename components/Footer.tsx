@@ -29,8 +29,13 @@ export default function Footer() {
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 pt-12 border-t border-white/10">
           <div className="md:col-span-2">
-            <Link href="/" className="text-2xl font-heading font-extrabold tracking-tighter text-white block mb-6">
-              VISTTA<span className="text-brand-cyan">.</span>
+            <Link href="/" className="inline-block relative mb-8 group">
+              <div className="absolute inset-0 bg-brand-cyan/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              <img 
+                src="/vistta-video.gif" 
+                alt="Vistta Glass" 
+                className="relative z-10 h-20 md:h-28 w-auto object-contain rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-105" 
+              />
             </Link>
             <p className="text-white/40 max-w-sm font-light">
               Premium architectural glass and window solutions for modern spaces in Chennai and Tamil Nadu.

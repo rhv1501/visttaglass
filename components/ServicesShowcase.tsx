@@ -4,13 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-
-const services = [
-  { id: "01", title: "Aluminium Systems", link: "/aluminium-windows-chennai", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" },
-  { id: "02", title: "Structural Glass", link: "/toughened-glass-chennai", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" },
-  { id: "03", title: "Acoustic Partitions", link: "/glass-partitions-chennai", img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop" },
-  { id: "04", title: "uPVC Engineering", link: "/upvc-windows-chennai", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" },
-];
+import { serviceCategories } from "@/data/services";
 
 export default function ServicesShowcase() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -31,7 +25,7 @@ export default function ServicesShowcase() {
               className="absolute inset-0 w-full h-full"
             >
               <img 
-                src={services[hoveredIndex].img} 
+                src={serviceCategories[hoveredIndex].image} 
                 alt="Service Background" 
                 className="w-full h-full object-cover grayscale-[0.2]"
               />
@@ -66,10 +60,10 @@ export default function ServicesShowcase() {
 
         {/* Interactive Typographic List */}
         <div className="w-full flex flex-col border-t border-brand-navy/10 relative z-20">
-          {services.map((service, index) => (
+          {serviceCategories.map((category, index) => (
             <Link 
-              key={service.id} 
-              href={service.link}
+              key={category.slug} 
+              href={`/services/${category.slug}`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               className="group flex flex-col md:flex-row md:items-center justify-between py-8 md:py-12 border-b border-brand-navy/10 relative transition-colors"
@@ -79,10 +73,10 @@ export default function ServicesShowcase() {
 
               <div className="flex items-center gap-8 md:gap-16">
                 <span className={`text-sm font-mono transition-colors duration-500 ${hoveredIndex !== null && hoveredIndex !== index ? 'text-white/30' : hoveredIndex === index ? 'text-brand-cyan' : 'text-brand-navy/40'}`}>
-                  {service.id}
+                  {String(index + 1).padStart(2, '0')}
                 </span>
                 <h3 className={`text-[clamp(2rem,4vw,5rem)] font-heading font-bold tracking-tight transition-all duration-500 transform group-hover:translate-x-4 ${hoveredIndex !== null && hoveredIndex !== index ? 'text-white/30' : hoveredIndex === index ? 'text-white' : 'text-brand-navy group-hover:text-brand-navy'}`}>
-                  {service.title}
+                  {category.title}
                 </h3>
               </div>
               
