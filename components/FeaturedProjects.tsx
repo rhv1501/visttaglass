@@ -1,40 +1,69 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const projects = [
-  {
-    id: 1,
-    title: "The Marina Pavilion",
-    category: "Commercial Architecture",
-    location: "ECR, Chennai",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
-  },
-  {
-    id: 2,
-    title: "Zenith Tech Park",
-    category: "Acoustic Partitions",
-    location: "OMR, Chennai",
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop",
-  },
-  {
-    id: 3,
-    title: "Aura Luxury Villas",
-    category: "Residential Glazing",
-    location: "Boat Club",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop",
-  },
-  {
-    id: 4,
-    title: "Velocity Tower",
-    category: "Structural Facades",
-    location: "Guindy",
-    image: "https://images.unsplash.com/photo-1545083036-b179caebecab?q=80&w=2070&auto=format&fit=crop",
-  }
+  { id: 1, video: "/videos/1758908431.MP4" },
+  { id: 2, video: "/videos/1759252963.MP4" },
+  { id: 3, video: "/videos/1762441292.MP4" },
 ];
+
+function LazyVideo({ src }: { src: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShouldLoad(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "400px" }
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (shouldLoad && videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  }, [shouldLoad]);
+
+  return (
+    <>
+      {!isLoaded && (
+        <div className="absolute inset-0 z-0 flex items-center justify-center bg-brand-navy/5 animate-pulse">
+          <div className="w-8 h-8 rounded-full border-2 border-brand-navy/20 border-t-brand-cyan animate-spin" />
+        </div>
+      )}
+      <video
+        ref={videoRef}
+        src={shouldLoad ? src : undefined}
+        muted
+        loop
+        playsInline
+        preload={shouldLoad ? "auto" : "none"}
+        onCanPlay={() => setIsLoaded(true)}
+        className={`absolute inset-0 z-10 w-full h-full object-cover transition-all duration-[1.2s] ease-[0.32,0.72,0,1] group-hover:scale-105 will-change-transform ${
+          isLoaded ? "opacity-90 group-hover:opacity-100" : "opacity-0"
+        }`}
+      />
+    </>
+  );
+}
 
 export default function FeaturedProjects() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -43,8 +72,8 @@ export default function FeaturedProjects() {
     target: targetRef,
   });
 
-  // Updated to -80% to ensure the 5th item (the CTA) comes fully into view
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
+  // Adjusted scroll to fit 3 items + 1 CTA perfectly
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-70%"]);
 
   return (
     <section id="projects" className="w-full bg-brand-pastel">
@@ -78,30 +107,13 @@ export default function FeaturedProjects() {
       <div ref={targetRef} className="relative h-[300vh]">
         <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
           <motion.div style={{ x }} className="flex gap-8 px-6 md:px-12 w-max">
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <div
                 key={project.id}
                 className="group relative w-[85vw] md:w-[60vw] lg:w-[45vw] h-[55vh] md:h-[65vh] overflow-hidden rounded-[2rem] bg-brand-pastelCard p-2 ring-1 ring-brand-navy/5 shadow-sm block hover:ring-brand-cyan/50 transition-all duration-700 shrink-0"
               >
                 <div className="relative w-full h-full block rounded-[1.5rem] overflow-hidden bg-brand-navy/5">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-multiply group-hover:scale-105 group-hover:opacity-100 transition-all duration-[1.2s] ease-[0.32,0.72,0,1] grayscale-[0.2] group-hover:grayscale-0"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/30 to-transparent opacity-80 group-hover:opacity-90 group-hover:from-brand-teal/90 transition-all duration-700" />
-                  
-                  <div className="absolute inset-0 p-8 flex flex-col justify-end z-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 ease-[0.32,0.72,0,1]">
-                    <div className="flex flex-col">
-                      <span className="text-brand-gold text-xs font-bold uppercase tracking-[0.2em] mb-4 block">
-                        0{index + 1} — {project.category}
-                      </span>
-                      <h3 className="text-3xl md:text-5xl font-heading font-extrabold text-white leading-tight mb-2 group-hover:text-brand-cyan transition-colors duration-500">
-                        {project.title}
-                      </h3>
-                      <p className="text-white/60 font-mono text-sm tracking-wide">{project.location}</p>
-                    </div>
-                  </div>
+                  <LazyVideo src={project.video} />
                 </div>
               </div>
             ))}

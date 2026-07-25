@@ -1,26 +1,122 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 
-const categories = ["All", "Commercial", "Residential", "Retail", "Hospitality"];
-
+// Expanded data with more videos from the folder to demonstrate infinite scrolling
 const projectsData = [
-  { id: 1, title: "The Marina Pavilion", category: "Commercial", location: "ECR, Chennai", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" },
-  { id: 2, title: "Aura Luxury Villas", category: "Residential", location: "Boat Club", image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop" },
-  { id: 3, title: "Zenith Tech Park", category: "Commercial", location: "OMR, Chennai", image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop" },
-  { id: 4, title: "Velvet Boutique", category: "Retail", location: "Phoenix Marketcity", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop" },
-  { id: 5, title: "Oceanic Resort", category: "Hospitality", location: "Mahabalipuram", image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=2025&auto=format&fit=crop" },
-  { id: 6, title: "Skyline Penthouses", category: "Residential", location: "Adyar", image: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=2070&auto=format&fit=crop" },
+  { id: 1, video: "/videos/1758908431.MP4" },
+  { id: 2, video: "/videos/1759252963.MP4" },
+  { id: 3, video: "/videos/1762441292.MP4" },
+  { id: 4, video: "/videos/1762892977.MP4" },
+  { id: 5, video: "/videos/1763047876.MP4" },
+  { id: 6, video: "/videos/1763113473.MP4" },
+  { id: 7, video: "/videos/1763458182.MP4" },
+  { id: 8, video: "/videos/1763636051.MP4" },
+  { id: 9, video: "/videos/1768541285.MP4" },
+  { id: 10, video: "/videos/1769265586.MP4" },
+  { id: 11, video: "/videos/1775759119.MP4" },
+  { id: 12, video: "/videos/1776077384.MP4" },
+  { id: 13, video: "/videos/1776078035.MP4" },
+  { id: 14, video: "/videos/1776260450.MP4" },
+  { id: 15, video: "/videos/1776364727.MP4" },
+  { id: 16, video: "/videos/1781002276.MP4" },
+  { id: 17, video: "/videos/1781002325.MP4" },
+  { id: 18, video: "/videos/1781002409.MP4" },
 ];
 
-export default function ProjectsPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
+function LazyVideo({ src }: { src: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  const filteredProjects = activeCategory === "All" 
-    ? projectsData 
-    : projectsData.filter(p => p.category === activeCategory);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShouldLoad(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "400px" }
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (shouldLoad && videoRef.current) {
+      videoRef.current.play().catch(() => {
+        // Ignore auto-play errors
+      });
+    }
+  }, [shouldLoad]);
+
+  return (
+    <>
+      {/* Loading Skeleton / Spinner */}
+      {!isLoaded && (
+        <div className="absolute inset-0 z-0 flex items-center justify-center bg-brand-navy/5 animate-pulse">
+          <div className="w-8 h-8 rounded-full border-2 border-brand-navy/20 border-t-brand-cyan animate-spin" />
+        </div>
+      )}
+
+      <video
+        ref={videoRef}
+        src={shouldLoad ? src : undefined}
+        muted
+        loop
+        playsInline
+        preload={shouldLoad ? "auto" : "none"}
+        onCanPlay={() => setIsLoaded(true)}
+        className={`absolute inset-0 z-10 w-full h-full object-cover transition-all duration-[1.2s] ease-[0.32,0.72,0,1] group-hover:scale-105 will-change-transform ${
+          isLoaded ? "opacity-90 group-hover:opacity-100" : "opacity-0"
+        }`}
+      />
+    </>
+  );
+}
+
+export default function ProjectsPage() {
+  const [visibleCount, setVisibleCount] = useState(3);
+  const loadMoreRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
+      setVisibleCount(1);
+    }
+  }, []);
+
+  const loadMore = useCallback(() => {
+    const step = typeof window !== "undefined" && window.innerWidth < 1024 ? 1 : 3;
+    setVisibleCount((prev) => Math.min(prev + step, projectsData.length));
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          loadMore();
+        }
+      },
+      { rootMargin: "400px" } // Balanced margin so mobile doesn't trigger multiple loads at once
+    );
+
+    if (loadMoreRef.current) {
+      observer.observe(loadMoreRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [loadMore]);
+
+  const visibleProjects = projectsData.slice(0, visibleCount);
 
   return (
     <>
@@ -36,30 +132,12 @@ export default function ProjectsPage() {
             </h1>
           </div>
 
-          {/* Filters */}
-          <div className="flex flex-wrap gap-4 mb-16 border-b border-brand-navy/10 pb-6 px-2">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2.5 rounded-full text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 ${
-                  activeCategory === category 
-                    ? "bg-brand-cyan text-brand-navy shadow-lg shadow-brand-cyan/20" 
-                    : "bg-brand-navy/5 text-brand-navy hover:bg-brand-gold/10 hover:text-brand-gold"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-
           {/* Grid */}
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
             <AnimatePresence>
-              {filteredProjects.map((project) => (
+              {visibleProjects.map((project) => (
                 <motion.div
                   key={project.id}
-                  layout
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
@@ -67,27 +145,20 @@ export default function ProjectsPage() {
                   className="group relative rounded-[2rem] bg-brand-pastelCard p-2 ring-1 ring-brand-navy/5 shadow-sm block aspect-[4/5] hover:ring-brand-cyan/50 transition-all duration-700"
                 >
                   <div className="relative w-full h-full block rounded-[1.5rem] overflow-hidden bg-brand-navy/5">
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] ease-[0.32,0.72,0,1] group-hover:scale-105 opacity-90 mix-blend-multiply group-hover:opacity-100 grayscale-[0.2] group-hover:grayscale-0"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/20 to-transparent opacity-60 group-hover:opacity-90 group-hover:from-brand-teal/90 transition-all duration-500" />
-                    
-                    <div className="absolute bottom-0 left-0 w-full p-8 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 ease-[0.32,0.72,0,1]">
-                      <span className="text-brand-gold text-xs font-bold uppercase tracking-[0.2em] mb-2 block">
-                        {project.category}
-                      </span>
-                      <h3 className="text-2xl md:text-3xl font-heading font-extrabold text-white mb-1 tracking-tight">
-                        {project.title}
-                      </h3>
-                      <p className="text-white/80 font-mono text-xs">{project.location}</p>
-                    </div>
+                    <LazyVideo src={project.video} />
                   </div>
                 </motion.div>
               ))}
             </AnimatePresence>
-          </motion.div>
+          </div>
+
+          {/* Infinite Scroll Trigger */}
+          {visibleCount < projectsData.length && (
+            <div ref={loadMoreRef} className="w-full h-32 flex items-center justify-center mt-8">
+              {/* Optional subtle loading indicator if wanted */}
+              <div className="w-8 h-8 rounded-full border-2 border-brand-navy/20 border-t-brand-cyan animate-spin" />
+            </div>
+          )}
         </div>
       </main>
       <Footer />

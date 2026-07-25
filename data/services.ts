@@ -20,7 +20,7 @@ export const serviceCategories: ServiceCategory[] = [
   {
     title: "Architectural Glass",
     slug: "architectural-glass",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
+    image: "/categories images/architectureglass.avif",
     description: "High-performance glass solutions for structural and exterior applications.",
     services: [
       {
@@ -30,7 +30,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Structural Toughened Glass",
         serviceName: "Toughened Glass",
         content: "Processed in advanced facilities, our toughened glass is up to 5 times stronger than standard annealed glass. We provide custom sizes and finishes for structural facades, frameless doors, and canopy systems.",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/architectural/structural toughend.jpg"
       },
       {
         slug: "laminated-glass",
@@ -39,7 +39,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Laminated Safety Glass",
         serviceName: "Laminated Glass",
         content: "Laminated glass provides maximum safety and sound insulation. Made by bonding two or more layers of glass with an interlayer, it holds together when shattered, making it ideal for skylights, railings, and security glazing.",
-        image: "https://images.unsplash.com/photo-1541888042459-715569420dc8?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/architectural/safety glass.jpg"
       },
       {
         slug: "bend-glass",
@@ -48,7 +48,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Custom Curved Architectural Glass",
         serviceName: "Bend Glass",
         content: "Our custom bend glass adds fluid, organic forms to architectural projects. Ideal for panoramic windows, revolving doors, and bespoke facades, offering both aesthetic elegance and structural integrity.",
-        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/architectural/bent.webp"
       },
       {
         slug: "insulated-glass",
@@ -57,23 +57,14 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "High-Performance Insulated Glass",
         serviceName: "Insulated Glass",
         content: "Reduce energy costs and enhance indoor comfort with our Insulated Glass Units (IGU). Designed to minimize heat transfer, they are perfect for energy-efficient commercial buildings and luxury residences.",
-        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
-      },
-      {
-        slug: "ceramic-printing",
-        title: "Ceramic Printed Glass",
-        description: "Durable, high-resolution custom graphics fused into the glass.",
-        heading: "Ceramic Fritted Architectural Glass",
-        serviceName: "Ceramic Printing",
-        content: "Incorporate permanent, UV-resistant designs onto your architectural glass. Ceramic frit is fused into the glass during the tempering process, providing solar control and unparalleled design flexibility.",
-        image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop"
+        image: "/categories images/architectural/inuslated glass unit.jpeg"
       }
     ]
   },
   {
     title: "Decorative Glass",
     slug: "decorative-glass",
-    image: "https://images.unsplash.com/photo-1549488344-c102a0a2df33?q=80&w=2070&auto=format&fit=crop",
+    image: "/categories images/decorative.avif",
     description: "Artistic and custom glass to elevate interior aesthetics.",
     services: [
       {
@@ -83,7 +74,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Premium Back Painted Glass",
         serviceName: "Painted Glass",
         content: "Add a splash of color to your spaces with our back painted glass. Highly durable and easy to clean, it's perfect for kitchen backsplashes, office writing boards, and feature walls.",
-        image: "https://images.unsplash.com/photo-1600566753086-00f18ef02ce4?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/interior/back painted.webp"
       },
       {
         slug: "stained-glass",
@@ -92,7 +83,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Bespoke Stained Glass Art",
         serviceName: "Stained Glass",
         content: "Bring classic elegance and colorful light play into your space. Our stained glass panels are handcrafted by artisans, suitable for churches, luxury homes, and boutique hospitality venues.",
-        image: "https://images.unsplash.com/photo-1549488344-c102a0a2df33?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/interior/stained.jpeg"
       },
       {
         slug: "etching-glass",
@@ -101,7 +92,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Custom Frosted & Etched Glass",
         serviceName: "Etching Glass",
         content: "Achieve the perfect balance of light and privacy. Our sandblasted and acid-etched glass can feature custom patterns, logos, or full frosted finishes for office partitions and shower doors.",
-        image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/interior/frosted etched.jpg"
       },
       {
         slug: "deep-carved-glass",
@@ -110,7 +101,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Artisanal Deep Carved Glass",
         serviceName: "Deep Carved Glass",
         content: "Transform standard glass into a three-dimensional work of art. Deep carving creates distinct textures and shadows, making it an excellent focal point for luxury lobbies and entryways.",
-        image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop"
+        image: "/categories images/interior/deep carved.webp"
       },
       {
         slug: "fabric-laminated-glass",
@@ -119,7 +110,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Fabric & Mesh Laminated Glass",
         serviceName: "Fabric Laminated Glass",
         content: "Encapsulate beautiful fabrics, metallic meshes, or natural elements between glass layers. This technique offers endless design possibilities for bespoke room dividers and decorative panels.",
-        image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop"
+        image: "/categories images/interior/fabric laminated.jpg"
       },
       {
         slug: "fragmental-glass",
@@ -128,7 +119,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Fragmental & Crash Glass",
         serviceName: "Fragmental Glass",
         content: "Create a striking visual impact with crash glass, featuring a shattered central layer safely sandwiched between two solid panes. Ideal for modern bars, countertops, and avant-garde partitions.",
-        image: "https://images.unsplash.com/photo-1541888042459-715569420dc8?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/interior/ceacked.avif"
       },
       {
         slug: "planilaque-glass",
@@ -137,7 +128,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Sleek Planilaque Glass",
         serviceName: "Planilacqe Glass",
         content: "Planilaque offers a brilliant, opaque, and highly reflective finish. It is the material of choice for high-end wardrobes, modern kitchens, and elegant interior wall cladding.",
-        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/interior/planilaue.webp"
       },
       {
         slug: "stacked-glass",
@@ -146,7 +137,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Architectural Stacked Glass",
         serviceName: "Stacked Glass",
         content: "Build volume and texture by stacking layers of glass edge-on. This dramatic technique is perfect for custom reception desks, water features, and bold architectural sculptures.",
-        image: "https://images.unsplash.com/photo-1545083036-b179caebecab?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/interior/stacked glass.jpeg"
       },
       {
         slug: "glass-pillars",
@@ -155,7 +146,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Luminous Glass Pillars",
         serviceName: "Glass Pillars",
         content: "Integrate light and structure with custom glass pillars. Whether used as decorative enclosures around existing structural columns or as standalone glowing features, they redefine interior spaces.",
-        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+        image: "/categories images/interior/glass pillars .jpg"
       },
       {
         slug: "glass-digital-printing",
@@ -164,7 +155,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Advanced Digital Glass Printing",
         serviceName: "Glass Digital Printing",
         content: "Print any photograph, pattern, or gradient directly onto glass with extreme precision and vibrant colors. Perfect for customized facades, branded corporate interiors, and unique art installations.",
-        image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop"
+        image: "/categories images/interior/digital.jpg"
       },
       {
         slug: "slumped-glass",
@@ -173,7 +164,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Kiln-Formed Slumped Glass",
         serviceName: "Slumped Glass",
         content: "Created by heating glass until it slumps over a custom mold, this technique results in stunning, organic textures like water ripples or bespoke patterns for privacy screens and feature windows.",
-        image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/interior/slumped.jpg"
       },
       {
         slug: "decorative-mirror",
@@ -182,7 +173,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Bespoke Decorative Mirrors",
         serviceName: "Decorative Mirror",
         content: "Expand your space with our premium decorative mirrors. From bronze-tinted large-format mirrors to heavily distressed antique finishes, we offer custom reflections for luxury interiors.",
-        image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop"
+        image: "/categories images/interior/decorativemirror.jpeg"
       },
       {
         slug: "led-mirror",
@@ -191,14 +182,14 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Illuminated LED Mirrors",
         serviceName: "Led Mirror",
         content: "Combine flawless reflection with integrated lighting. Our LED mirrors feature dimmable, color-temperature adjustable lighting, anti-fog technology, and sleek frameless designs for modern bathrooms.",
-        image: "https://images.unsplash.com/photo-1600566753086-00f18ef02ce4?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/interior/led.jpg"
       }
     ]
   },
   {
     title: "Glass Services",
     slug: "glass-services",
-    image: "https://images.unsplash.com/photo-1541888042459-715569420dc8?q=80&w=2070&auto=format&fit=crop",
+    image: "/categories images/glassservice.webp",
     description: "Expert installation, systems, and architectural glass hardware.",
     services: [
       {
@@ -208,7 +199,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Seamless Automatic Glass Doors",
         serviceName: "Automatic Doors",
         content: "Enhance accessibility and hygiene with our advanced automatic door systems. We integrate reliable European motors with premium toughened glass for smooth, silent, and secure commercial entryways.",
-        image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop"
+        image: "/categories images/glass service/auto doors.webp"
       },
       {
         slug: "kitchen-shutters",
@@ -217,7 +208,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Modern Glass Kitchen Shutters",
         serviceName: "Kitchen Shutters",
         content: "Upgrade your kitchen cabinetry with ultra-slim aluminum framed glass shutters. Available in clear, frosted, or back-painted finishes, they bring a clean, European aesthetic to modular kitchens.",
-        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/glass service/glass shutters.jpg"
       },
       {
         slug: "glass-partition",
@@ -226,7 +217,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Minimalist Glass Partitions",
         serviceName: "Glass Partition",
         content: "Create fluid, light-filled workspaces with our minimalist glass partition systems. We offer single and double-glazed acoustic solutions with premium slimline aluminium tracks.",
-        image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop"
+        image: "/categories images/glass service/glass partitiion.jpg"
       },
       {
         slug: "canopy-system",
@@ -235,7 +226,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Structural Glass Canopies",
         serviceName: "Canopy System",
         content: "Protect your entrances from the elements without blocking natural light. Our laminated safety glass canopies use premium stainless steel tension rods and spider fittings for a floating, modern look.",
-        image: "https://images.unsplash.com/photo-1541888042459-715569420dc8?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/glass service/canopy glass.jpeg"
       },
       {
         slug: "shower-cubicles",
@@ -244,7 +235,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Frameless Shower Enclosures",
         serviceName: "Shower Cubicles",
         content: "Transform your bathroom into a luxury spa experience. Our custom frameless shower cubicles are built using toughened safety glass and premium, corrosion-resistant hardware in bespoke finishes.",
-        image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/glass service/showe cubicles.jpeg"
       },
       {
         slug: "bend-glass-railing",
@@ -253,7 +244,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Curved Glass Balustrades",
         serviceName: "Bend Glass Railing",
         content: "Follow the elegant curves of your architecture with precision bend glass railings. We provide frameless, structural curved glass balustrades that offer uncompromising safety and striking visual flow.",
-        image: "https://images.unsplash.com/photo-1545083036-b179caebecab?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/glass service/glass railing.jpeg"
       },
       {
         slug: "balcony-railing",
@@ -262,7 +253,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Frameless Balcony Railings",
         serviceName: "Balcony Railing",
         content: "Achieve true seamless aesthetics for your balconies. Our frameless glass balustrades use heavy-duty base shoes or standoff hardware to provide maximum safety without compromising your architectural views.",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/glass service/balcony glass railings.jpeg"
       },
       {
         slug: "patch-fitting-glass",
@@ -271,7 +262,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Frameless Patch Fitting Assemblies",
         serviceName: "Patch Fitting Glass",
         content: "Maximize transparency with patch-fitted frameless glass assemblies. Using minimal stainless steel hardware at the corners, we create sweeping glass frontages for retail stores and modern offices.",
-        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+        image: "/categories images/glass service/patch fitting.jpg"
       },
       {
         slug: "sliding-systems",
@@ -280,14 +271,14 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Architectural Sliding Glass Systems",
         serviceName: "Sliding Systems",
         content: "Blur the lines between indoor and outdoor spaces with our premium sliding systems. Featuring heavy-duty bottom rollers or sleek top-hung tracks, our doors glide effortlessly even with large-format glass.",
-        image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop"
+        image: "/categories images/glass service/glass sliding system.jpeg"
       }
     ]
   },
   {
     title: "Aluminium Systems",
     slug: "aluminium-systems",
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop",
+    image: "/categories images/aluminium-systems.avif",
     description: "Premium aluminium profiles, partitions, and sliding systems for modern spaces.",
     services: [
       {
@@ -306,7 +297,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Architectural Wardrobe Profiles",
         serviceName: "Wardrobe Profiles",
         content: "Create stunning, space-saving wardrobes with our advanced aluminium profiles. Available in both smooth sliding and traditional openable configurations, these systems provide a flawless finish and effortless operation for luxury bedroom interiors.",
-        image: "https://images.unsplash.com/photo-1549488344-c102a0a2df33?q=80&w=2070&auto=format&fit=crop"
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
       },
       {
         slug: "aluminium-internal-partition",
@@ -369,7 +360,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Architectural Aluminium Railings",
         serviceName: "Aluminium Railing",
         content: "Secure your balconies and staircases with our heavy-duty aluminium railing systems. Offering unparalleled structural integrity and a rust-free lifespan, they provide a clean, modern edge to any exterior or interior.",
-        image: "https://images.unsplash.com/photo-1545083036-b179caebecab?q=80&w=2070&auto=format&fit=crop"
+        image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2070&auto=format&fit=crop"
       },
       {
         slug: "aluminium-louver-doors",
@@ -378,7 +369,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Functional Aluminium Louver Doors",
         serviceName: "Aluminium Louver Doors",
         content: "Ensure continuous airflow while maintaining privacy and security. Our precision-engineered aluminium louver doors are perfect for utility rooms, HVAC enclosures, and striking architectural exterior accents.",
-        image: "https://images.unsplash.com/photo-1600566753086-00f18ef02ce4?q=80&w=2070&auto=format&fit=crop"
+        image: "https://images.unsplash.com/photo-1599696848652-f0ff23bc911f?q=80&w=2070&auto=format&fit=crop"
       },
       {
         slug: "aluminium-french-windows",
