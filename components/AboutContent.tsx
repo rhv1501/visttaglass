@@ -68,7 +68,7 @@ export default function AboutContent() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.32, 0.72, 0, 1] }}
-            className="text-[clamp(3.5rem,8vw,8rem)] font-heading font-extrabold text-brand-navy leading-[1.05] tracking-tight"
+            className="text-[clamp(3.5rem,8vw,8rem)] font-heading font-light text-brand-navy leading-[1.05] tracking-tight"
           >
             Engineering <span className="text-brand-cyan">Light.</span> <br />
             <span className="text-brand-navy/40">Defining Space.</span>
@@ -88,7 +88,7 @@ export default function AboutContent() {
             </div>
           </div>
           <div className="prose prose-lg text-brand-navy/70 font-light mt-8 md:mt-16">
-            <h2 className="text-3xl font-heading font-extrabold text-brand-navy mb-6 tracking-tight">A Legacy of <span className="text-brand-gold">Precision</span></h2>
+            <h2 className="text-3xl font-heading font-light text-brand-navy mb-6 tracking-tight">A Legacy of <span className="text-brand-gold">Precision</span></h2>
             <p>
               Vistta Glass is a leading interior and architectural glass solutions provider in Chennai. We specialize in supply and installation of aluminium windows, uPVC windows, structural glass, shower cubicles, acoustic glass partitions, and bespoke installations for <strong className="text-brand-navy font-bold">premium residential and commercial projects.</strong>
             </p>
@@ -98,11 +98,11 @@ export default function AboutContent() {
             
             <div className="mt-16 grid grid-cols-2 gap-8 pt-12 border-t border-brand-navy/10">
               <div>
-                <span className="block text-4xl md:text-5xl font-heading font-extrabold text-brand-cyan mb-2 tracking-tighter">15+</span>
+                <span className="block text-4xl md:text-5xl font-heading font-light text-brand-cyan mb-2 tracking-tighter">15+</span>
                 <span className="text-[10px] uppercase tracking-[0.2em] text-brand-navy/60 font-bold">Years Experience</span>
               </div>
               <div>
-                <span className="block text-4xl md:text-5xl font-heading font-extrabold text-brand-cyan mb-2 tracking-tighter">500+</span>
+                <span className="block text-4xl md:text-5xl font-heading font-light text-brand-cyan mb-2 tracking-tighter">500+</span>
                 <span className="text-[10px] uppercase tracking-[0.2em] text-brand-navy/60 font-bold">Projects Delivered</span>
               </div>
             </div>
@@ -115,7 +115,7 @@ export default function AboutContent() {
             <span className="inline-block rounded-full bg-brand-cyan/10 px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-bold text-brand-cyan mb-6">
               Our Pillars
             </span>
-            <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-heading font-extrabold text-brand-navy leading-tight tracking-tight max-w-2xl">
+            <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-heading font-light text-brand-navy leading-tight tracking-tight max-w-2xl">
               The principles that govern our craftsmanship.
             </h2>
           </div>
@@ -123,7 +123,7 @@ export default function AboutContent() {
             {pillars.map((pillar, i) => (
               <div key={i} className="bg-white p-8 md:p-12 rounded-[2rem] border border-brand-navy/5 shadow-sm hover:shadow-xl hover:border-brand-cyan/30 transition-all duration-500 group">
                 <span className="text-brand-gold font-mono text-sm mb-6 block opacity-50 group-hover:opacity-100 transition-opacity">{pillar.num}</span>
-                <h3 className="text-2xl font-heading font-bold text-brand-navy mb-4 group-hover:text-brand-cyan transition-colors">{pillar.title}</h3>
+                <h3 className="text-2xl font-heading font-light text-brand-navy mb-4 group-hover:text-brand-cyan transition-colors">{pillar.title}</h3>
                 <p className="text-brand-navy/60 leading-relaxed font-light">{pillar.desc}</p>
               </div>
             ))}
@@ -136,7 +136,7 @@ export default function AboutContent() {
             <span className="inline-block rounded-full bg-brand-gold/10 px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-bold text-brand-gold mb-6">
               Execution
             </span>
-            <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-heading font-extrabold text-brand-navy leading-tight tracking-tight">
+            <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-heading font-light text-brand-navy leading-tight tracking-tight">
               The Vistta Process
             </h2>
           </div>
@@ -153,7 +153,7 @@ export default function AboutContent() {
               >
                 <div className="md:w-1/3 shrink-0">
                   <div className="text-brand-cyan font-mono text-sm tracking-widest mb-2 opacity-50">PHASE 0{i + 1}</div>
-                  <h3 className="text-2xl md:text-3xl font-heading font-bold text-brand-navy tracking-tight">{step.title}</h3>
+                  <h3 className="text-2xl md:text-3xl font-heading font-light text-brand-navy tracking-tight">{step.title}</h3>
                 </div>
                 <div className="md:w-2/3">
                   <p className="text-lg text-brand-navy/70 leading-relaxed font-light">
@@ -175,7 +175,7 @@ export default function AboutContent() {
             <motion.div style={{ y: y2 }} className="md:col-span-5 rounded-[2rem] overflow-hidden relative bg-brand-navy flex items-center justify-center p-12">
               <div className="absolute inset-0 w-full h-full bg-brand-cyan/20 blur-[80px] pointer-events-none mix-blend-screen" />
               <div className="relative z-10">
-                <h3 className="text-3xl font-heading font-extrabold text-white mb-6">Unseen Details.</h3>
+                <h3 className="text-3xl font-heading font-light text-white mb-6">Unseen Details.</h3>
                 <p className="text-white/70 font-light leading-relaxed">
                   True craftsmanship exists in the margins. It’s the microscopic polish on a raw glass edge, the silent glide of a heavily weighted door, and the total absence of visual clutter in a structural seal. We engineer the invisible.
                 </p>

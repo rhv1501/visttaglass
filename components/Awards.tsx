@@ -18,7 +18,7 @@ export default function Awards() {
             <span className="inline-block rounded-full bg-brand-gold/10 px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-bold text-brand-gold mb-8">
               Recognition
             </span>
-            <h2 className="text-[clamp(3.5rem,7vw,6.5rem)] font-heading font-extrabold text-brand-navy leading-[1.1] tracking-tight">
+            <h2 className="text-[clamp(3.5rem,7vw,6.5rem)] font-heading font-light text-brand-navy leading-[1.1] tracking-tight">
               Award-Winning <br /> <span className="text-brand-cyan">Execution.</span>
             </h2>
           </div>
@@ -38,7 +38,7 @@ export default function Awards() {
                 {award.year}
               </div>
               <div className="md:w-2/4">
-                <h3 className="text-2xl md:text-4xl font-heading font-extrabold text-brand-navy group-hover:text-brand-cyan transition-colors tracking-tight">
+                <h3 className="text-2xl md:text-4xl font-heading font-light text-brand-navy group-hover:text-brand-cyan transition-colors tracking-tight">
                   {award.title}
                 </h3>
               </div>

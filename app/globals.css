@@ -32,7 +32,7 @@
   --color-brand-pastelCard: var(--vistta-pastel-card);
   
   --font-sans: var(--font-inter), sans-serif;
-  --font-heading: var(--font-poppins), sans-serif;
+  --font-heading: var(--font-outfit), sans-serif;
   
   /* Adjust font weights */
   --font-weight-extrabold: 700;
@@ -47,9 +47,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: var(--font-heading);
   letter-spacing: -0.02em;
+  font-weight: 300 !important;
 }
 
 /* Custom Easing for Awwwards Vibe */

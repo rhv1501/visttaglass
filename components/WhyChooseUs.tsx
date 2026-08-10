@@ -62,7 +62,7 @@ export default function WhyChooseUs() {
             <span className="inline-block rounded-full bg-brand-cyan/10 px-4 py-1.5 text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-brand-cyan mb-8">
               Why Architects Trust Us
             </span>
-            <h2 className="text-[2.5rem] md:text-[clamp(3.5rem,7vw,7rem)] font-heading font-extrabold leading-[1.1] md:leading-[1.05] tracking-tight">
+            <h2 className="text-[2.5rem] md:text-[clamp(3.5rem,7vw,7rem)] font-heading font-light leading-[1.1] md:leading-[1.05] tracking-tight">
               {words.map((word, i) => {
                 const start = i / words.length;
                 const end = start + (1 / words.length);
@@ -89,7 +89,7 @@ export default function WhyChooseUs() {
           {/* Left Side: Staggered Statistics */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div className="mb-16 lg:mb-0">
-              <h3 className="text-xl md:text-2xl font-heading font-extrabold text-brand-navy mb-4 tracking-tight">
+              <h3 className="text-xl md:text-2xl font-heading font-light text-brand-navy mb-4 tracking-tight">
                 Tamil Nadu Coverage
               </h3>
               <p className="text-brand-navy/60 leading-relaxed max-w-sm mb-16 font-light">
@@ -99,7 +99,7 @@ export default function WhyChooseUs() {
               <div className="space-y-12">
                 <div className="relative">
                   <div className="absolute -left-6 top-2 w-[2px] h-12 bg-gradient-to-b from-brand-teal to-brand-cyan" />
-                  <span className="block text-6xl md:text-8xl font-heading font-extrabold text-brand-navy leading-none tracking-tighter">
+                  <span className="block text-6xl md:text-8xl font-heading font-light text-brand-navy leading-none tracking-tighter">
                     200+
                   </span>
                   <span className="text-brand-navy/60 text-xs font-mono uppercase tracking-[0.2em] mt-4 block">
@@ -109,7 +109,7 @@ export default function WhyChooseUs() {
                 
                 <div className="relative">
                   <div className="absolute -left-6 top-2 w-[2px] h-12 bg-brand-gold/50" />
-                  <span className="block text-6xl md:text-8xl font-heading font-extrabold text-brand-navy leading-none tracking-tighter">
+                  <span className="block text-6xl md:text-8xl font-heading font-light text-brand-navy leading-none tracking-tighter">
                     100%
                   </span>
                   <span className="text-brand-navy/60 text-xs font-mono uppercase tracking-[0.2em] mt-4 block">
@@ -136,7 +136,7 @@ export default function WhyChooseUs() {
                       <span className={`text-sm font-mono transition-colors duration-500 ${activeIndex === index ? "text-brand-gold" : "text-brand-navy/40"}`}>
                         {feature.num}
                       </span>
-                      <h3 className={`text-2xl md:text-5xl font-heading font-bold tracking-tight transition-all duration-500 ${activeIndex === index ? "text-brand-navy" : "text-brand-navy/40 group-hover:text-brand-cyan"}`}>
+                      <h3 className={`text-2xl md:text-5xl font-heading font-light tracking-tight transition-all duration-500 ${activeIndex === index ? "text-brand-navy" : "text-brand-navy/40 group-hover:text-brand-cyan"}`}>
                         {feature.title}
                       </h3>
                     </div>

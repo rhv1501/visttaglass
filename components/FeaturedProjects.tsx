@@ -85,7 +85,7 @@ export default function FeaturedProjects() {
             <span className="inline-block rounded-full bg-brand-cyan/10 px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-bold text-brand-cyan mb-6">
               Selected Work
             </span>
-            <h2 className="text-[clamp(3rem,6vw,6rem)] font-heading font-extrabold text-brand-navy leading-[1.05] tracking-tighter">
+            <h2 className="text-[clamp(3rem,6vw,6rem)] font-heading font-light text-brand-navy leading-[1.05] tracking-tighter">
               Transparent <br /> <span className="text-brand-gold">Brilliance.</span>
             </h2>
           </div>
@@ -124,7 +124,7 @@ export default function FeaturedProjects() {
                 <div className="w-24 h-24 rounded-full border border-brand-navy/10 flex items-center justify-center bg-brand-navy/5 group-hover:bg-brand-cyan group-hover:border-brand-cyan transition-colors duration-500">
                   <ArrowRight className="w-8 h-8 text-brand-navy group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-3xl md:text-5xl font-heading font-extrabold text-brand-navy group-hover:text-brand-cyan transition-colors duration-500">
+                <h3 className="text-3xl md:text-5xl font-heading font-light text-brand-navy group-hover:text-brand-cyan transition-colors duration-500">
                   View Portfolio
                 </h3>
               </Link>

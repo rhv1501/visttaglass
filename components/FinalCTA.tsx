@@ -30,7 +30,7 @@ export default function FinalCTA() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-6xl mx-auto"
         >
-          <h2 className="text-[clamp(4rem,10vw,12rem)] font-heading font-extrabold text-white tracking-tighter leading-[0.9] mb-16">
+          <h2 className="text-[clamp(4rem,10vw,12rem)] font-heading font-light text-white tracking-tighter leading-[0.9] mb-16">
             Let&apos;s Build <br /> Something <span className="text-brand-silver">Transparent.</span>
           </h2>
           

@@ -40,7 +40,7 @@ export default function PartnersMarquee() {
           {[...partners, ...partners].map((partner, index) => (
             <div 
               key={index} 
-              className="px-12 md:px-24 flex items-center justify-center text-brand-navy/10 text-3xl md:text-5xl font-heading font-extrabold uppercase tracking-widest hover:text-brand-cyan transition-colors duration-500"
+              className="px-12 md:px-24 flex items-center justify-center text-brand-navy/10 text-3xl md:text-5xl font-heading font-light uppercase tracking-widest hover:text-brand-cyan transition-colors duration-500"
             >
               {partner}
             </div>

@@ -34,7 +34,7 @@ export default function FAQ() {
             <span className="inline-block rounded-full bg-brand-cyan/10 px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-bold text-brand-cyan mb-8">
               Knowledge Base
             </span>
-            <h2 className="text-4xl md:text-6xl font-heading font-extrabold text-brand-navy leading-[1.1] tracking-tighter mb-8">
+            <h2 className="text-4xl md:text-6xl font-heading font-light text-brand-navy leading-[1.1] tracking-tighter mb-8">
               Frequently <br /> <span className="text-brand-gold">Asked.</span>
             </h2>
             <p className="text-brand-navy/60 text-lg leading-relaxed max-w-sm font-light">
@@ -49,7 +49,7 @@ export default function FAQ() {
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   className="w-full py-8 text-left flex justify-between items-center group"
                 >
-                  <h3 className={`text-xl md:text-2xl font-heading font-bold pr-8 transition-colors ${openIndex === index ? "text-brand-navy" : "text-brand-navy/60 group-hover:text-brand-cyan"}`}>
+                  <h3 className={`text-xl md:text-2xl font-heading font-light pr-8 transition-colors ${openIndex === index ? "text-brand-navy" : "text-brand-navy/60 group-hover:text-brand-cyan"}`}>
                     {faq.question}
                   </h3>
                   <div className="relative w-4 h-4 shrink-0 flex items-center justify-center">

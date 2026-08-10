@@ -13,7 +13,7 @@ export default function Manifesto() {
             <span className="inline-block rounded-full bg-brand-cyan/10 px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-bold text-brand-cyan mb-8">
               The Manifesto
             </span>
-            <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-white leading-[1.1] tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-heading font-light text-white leading-[1.1] tracking-tight">
               Chennai&apos;s premier partner for visionary interior and architectural glass solutions.
             </h2>
           </div>

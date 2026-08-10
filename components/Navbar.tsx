@@ -61,7 +61,7 @@ export default function Navbar() {
             <img 
               src="/logo.png" 
               alt="Vistta Glass" 
-              className={`h-12 md:h-16 w-auto object-contain transition-all duration-500 ${menuOpen ? "brightness-0 invert" : ""}`}
+              className={`h-16 md:h-20 w-auto object-contain transition-all duration-500 drop-shadow-[1px_2px_2px_rgba(0,0,0,0.25)] drop-shadow-[-1px_-1px_1px_rgba(255,255,255,0.6)] ${menuOpen ? "brightness-0 invert !drop-shadow-none" : ""}`}
             />
           </Link>
 
@@ -164,7 +164,7 @@ export default function Navbar() {
                     >
                       <Link 
                         href={link.path}
-                        className={`group flex items-center gap-4 text-[clamp(2.5rem,8vw,3.5rem)] font-heading font-extrabold tracking-tighter ${
+                        className={`group flex items-center gap-4 text-[clamp(2.5rem,8vw,3.5rem)] font-heading font-light tracking-tighter ${
                           pathname === link.path ? "text-white" : "text-white/40 hover:text-brand-cyan"
                         } transition-colors duration-300`}
                       >

@@ -17,7 +17,7 @@ export default function InstantQuoteForm({ serviceName }: { serviceName: string 
         <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-8">
           <Check className="w-6 h-6 text-brand-teal" />
         </div>
-        <h3 className="text-3xl font-heading font-extrabold mb-4">Request <br/> Received.</h3>
+        <h3 className="text-3xl font-heading font-light mb-4">Request <br/> Received.</h3>
         <p className="text-white/60 font-light text-sm max-w-[200px] leading-relaxed">
           Our engineering team will contact you shortly regarding the {serviceName} specifications.
         </p>
@@ -34,7 +34,7 @@ export default function InstantQuoteForm({ serviceName }: { serviceName: string 
         <span className="text-brand-teal text-xs font-mono uppercase tracking-[0.3em] mb-4 block">
           Project Inquiry
         </span>
-        <h3 className="text-3xl md:text-4xl font-heading font-extrabold mb-12 leading-tight">
+        <h3 className="text-3xl md:text-4xl font-heading font-light mb-12 leading-tight">
           Request an <br/> Estimate.
         </h3>
         

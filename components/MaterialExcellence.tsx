@@ -49,7 +49,7 @@ export default function MaterialExcellence() {
             <span className="inline-block rounded-full bg-brand-cyan/10 px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-bold text-brand-cyan mb-8">
               The Process
             </span>
-            <h2 className="text-[clamp(3.5rem,7vw,6.5rem)] font-heading font-extrabold leading-[1.05] tracking-tight mb-8">
+            <h2 className="text-[clamp(3.5rem,7vw,6.5rem)] font-heading font-light leading-[1.05] tracking-tight mb-8">
               The Vistta <br /> Standard.
             </h2>
             <p className="text-xl text-white/60 font-light max-w-md leading-relaxed">
@@ -86,10 +86,10 @@ export default function MaterialExcellence() {
                   style={{ opacity, y }}
                   className="absolute inset-0 flex flex-col justify-center"
                 >
-                  <span className="text-brand-cyan text-8xl md:text-[14rem] font-heading font-extrabold opacity-10 leading-none mb-4 md:-ml-8 pointer-events-none select-none">
+                  <span className="text-brand-cyan text-8xl md:text-[14rem] font-heading font-light opacity-10 leading-none mb-4 md:-ml-8 pointer-events-none select-none">
                     {step.num}
                   </span>
-                  <h3 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6 relative z-10 tracking-tight">
+                  <h3 className="text-4xl md:text-5xl font-heading font-light text-white mb-6 relative z-10 tracking-tight">
                     {step.title}
                   </h3>
                   <p className="text-white/60 text-lg md:text-xl leading-relaxed max-w-lg relative z-10 font-light">

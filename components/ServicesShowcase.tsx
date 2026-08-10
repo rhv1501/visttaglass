@@ -44,7 +44,7 @@ export default function ServicesShowcase() {
             <span className={`inline-block rounded-full px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-bold mb-6 transition-colors duration-500 ${hoveredIndex !== null ? 'bg-brand-cyan/20 text-brand-cyan' : 'bg-brand-gold/10 text-brand-gold'}`}>
               Capabilities
             </span>
-            <h2 className={`text-[clamp(2.5rem,6vw,5rem)] font-heading font-extrabold leading-[1.05] tracking-tight transition-colors duration-500 ${hoveredIndex !== null ? 'text-white' : 'text-brand-navy'}`}>
+            <h2 className={`text-[clamp(2.5rem,6vw,5rem)] font-heading font-light leading-[1.05] tracking-tight transition-colors duration-500 ${hoveredIndex !== null ? 'text-white' : 'text-brand-navy'}`}>
               Engineering Light <br /> &amp; <span className={hoveredIndex !== null ? 'text-brand-gold' : 'text-brand-cyan'}>Space.</span>
             </h2>
           </div>
@@ -75,7 +75,7 @@ export default function ServicesShowcase() {
                 <span className={`text-sm font-mono transition-colors duration-500 ${hoveredIndex !== null && hoveredIndex !== index ? 'text-white/30' : hoveredIndex === index ? 'text-brand-cyan' : 'text-brand-navy/40'}`}>
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className={`text-[clamp(2rem,4vw,5rem)] font-heading font-bold tracking-tight transition-all duration-500 transform group-hover:translate-x-4 ${hoveredIndex !== null && hoveredIndex !== index ? 'text-white/30' : hoveredIndex === index ? 'text-white' : 'text-brand-navy group-hover:text-brand-navy'}`}>
+                <h3 className={`text-[clamp(2rem,4vw,5rem)] font-heading font-light tracking-tight transition-all duration-500 transform group-hover:translate-x-4 ${hoveredIndex !== null && hoveredIndex !== index ? 'text-white/30' : hoveredIndex === index ? 'text-white' : 'text-brand-navy group-hover:text-brand-navy'}`}>
                   {category.title}
                 </h3>
               </div>

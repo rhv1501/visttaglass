@@ -11,7 +11,7 @@ export default function Footer() {
           <span className="inline-block rounded-full bg-brand-cyan/10 px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-bold text-brand-cyan mb-8">
             Next Steps
           </span>
-          <h2 className="text-[clamp(3.5rem,10vw,10rem)] font-heading font-extrabold text-white leading-[0.9] tracking-tighter mb-12">
+          <h2 className="text-[clamp(3.5rem,10vw,10rem)] font-heading font-light text-white leading-[0.9] tracking-tighter mb-12">
             Let's Build <br /> <span className="text-white/40">Together.</span>
           </h2>
           

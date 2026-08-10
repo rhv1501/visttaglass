@@ -27,7 +27,7 @@ export default function CategoryAccordion({ services }: { services: ServiceItem[
                 <span className={`font-mono text-sm font-bold transition-colors duration-300 ${isOpen ? 'text-brand-cyan' : 'text-brand-navy/40'}`}>
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className={`text-xl md:text-3xl font-heading font-extrabold transition-colors duration-300 ${isOpen ? 'text-brand-navy' : 'text-brand-navy/70'}`}>
+                <h3 className={`text-xl md:text-3xl font-heading font-light transition-colors duration-300 ${isOpen ? 'text-brand-navy' : 'text-brand-navy/70'}`}>
                   {service.title}
                 </h3>
               </div>
@@ -54,7 +54,7 @@ export default function CategoryAccordion({ services }: { services: ServiceItem[
                         />
                       </div>
                       <div className="flex-1 flex flex-col">
-                        <h4 className="text-lg md:text-xl font-heading font-bold text-brand-navy mb-4">
+                        <h4 className="text-lg md:text-xl font-heading font-light text-brand-navy mb-4">
                           {service.heading}
                         </h4>
                         <p className="text-brand-navy/70 font-light leading-relaxed mb-8 text-base">
