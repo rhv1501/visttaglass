@@ -1,9 +1,10 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, AnimatePresence } from "framer-motion";
 import Footer from "@/components/Footer";
-import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
+import { ArrowRight, MapPin, Phone, Mail, Check, ArrowLeft } from "lucide-react";
 import MagneticButton from "@/components/MagneticButton";
+import { useState } from "react";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -23,6 +24,68 @@ const itemVariants: Variants = {
 };
 
 export default function ContactPage() {
+  const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    brief: "",
+  });
+  
+  const [errors, setErrors] = useState<Partial<typeof formData>>({});
+
+  const validateStep = (currentStep: number) => {
+    const newErrors: Partial<typeof formData> = {};
+    let isValid = true;
+    
+    if (currentStep === 1) {
+      if (!formData.firstName.trim()) { newErrors.firstName = "First name is required"; isValid = false; }
+      if (!formData.lastName.trim()) { newErrors.lastName = "Last name is required"; isValid = false; }
+    } else if (currentStep === 2) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!formData.email.trim()) { newErrors.email = "Email is required"; isValid = false; }
+      else if (!emailRegex.test(formData.email)) { newErrors.email = "Invalid email format"; isValid = false; }
+      
+      const phoneRegex = /^\+?[\d\s-]{10,}$/;
+      if (!formData.phone.trim()) { newErrors.phone = "Phone number is required"; isValid = false; }
+      else if (!phoneRegex.test(formData.phone)) { newErrors.phone = "Invalid phone number"; isValid = false; }
+    } else if (currentStep === 3) {
+      if (!formData.brief.trim()) { newErrors.brief = "Project brief is required"; isValid = false; }
+      else if (formData.brief.length < 10) { newErrors.brief = "Brief must be at least 10 characters"; isValid = false; }
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  const handleNext = () => {
+    if (validateStep(step)) {
+      if (step < 3) {
+        setStep(prev => prev + 1);
+      } else {
+        submitForm();
+      }
+    }
+  };
+
+  const handlePrev = () => {
+    if (step > 1) {
+      setStep(prev => prev - 1);
+    }
+  };
+
+  const submitForm = () => {
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }, 1500);
+  };
+
   return (
     <>
       <main className="w-full min-h-screen bg-brand-pastel text-brand-navy overflow-hidden">
@@ -102,8 +165,8 @@ export default function ContactPage() {
                 </div>
                 
                 <div className="flex flex-col gap-6">
-                  <a href="mailto:hello@visttaglass.com" className="text-[clamp(1.5rem,3vw,2.5rem)] font-heading font-bold text-brand-navy group-hover:text-brand-navy break-all tracking-tight transform group-hover:translate-x-2 transition-transform duration-500">
-                    hello@visttaglass.com
+                  <a href="mailto:sales@visttaglass.com" className="text-[clamp(1.5rem,3vw,2.5rem)] font-heading font-bold text-brand-navy group-hover:text-brand-navy break-all tracking-tight transform group-hover:translate-x-2 transition-transform duration-500">
+                    sales@visttaglass.com
                   </a>
                 </div>
               </div>
@@ -115,118 +178,224 @@ export default function ContactPage() {
               initial={{ x: "100%" }}
               animate={{ x: "0%" }}
               transition={{ duration: 1.2, ease: [0.32, 0.72, 0, 1] }}
-              className="w-full lg:w-7/12 p-8 md:p-16 lg:p-24 xl:p-32 bg-white relative z-0"
+              className="w-full lg:w-7/12 p-8 md:p-16 lg:p-24 xl:p-32 bg-white relative z-0 min-h-[600px] flex flex-col justify-center"
             >
-              <div className="max-w-2xl mx-auto lg:mx-0">
-                <h3 className="text-[clamp(2.5rem,4vw,3.5rem)] font-heading font-extrabold mb-16 md:mb-24 text-brand-navy tracking-tight">
-                  Submit <span className="text-brand-gold">Specification</span>
-                </h3>
+              <div className="max-w-2xl mx-auto lg:mx-0 w-full">
                 
-                <motion.form variants={containerVariants} initial="hidden" animate="show" className="space-y-12 md:space-y-16">
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-                    <motion.div variants={itemVariants} className="relative group">
-                      <input 
-                        type="text" 
-                        id="firstName"
-                        required
-                        className="peer w-full bg-transparent border-b border-brand-navy/10 pb-3 text-brand-navy focus:outline-none text-lg md:text-xl font-light tracking-wide placeholder-transparent"
-                        placeholder="First Name"
-                      />
-                      <label 
-                        htmlFor="firstName"
-                        className="absolute left-0 top-0 text-brand-navy/40 text-[10px] font-mono uppercase tracking-widest transition-all duration-300 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm peer-placeholder-shown:text-brand-navy/40 peer-focus:-top-5 peer-focus:text-[10px] peer-focus:text-brand-cyan"
-                      >
-                        First Name
-                      </label>
-                      <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-brand-teal to-brand-cyan transition-all duration-500 peer-focus:w-full" />
-                    </motion.div>
-                    
-                    <motion.div variants={itemVariants} className="relative group">
-                      <input 
-                        type="text" 
-                        id="lastName"
-                        required
-                        className="peer w-full bg-transparent border-b border-brand-navy/10 pb-3 text-brand-navy focus:outline-none text-lg md:text-xl font-light tracking-wide placeholder-transparent"
-                        placeholder="Last Name"
-                      />
-                      <label 
-                        htmlFor="lastName"
-                        className="absolute left-0 top-0 text-brand-navy/40 text-[10px] font-mono uppercase tracking-widest transition-all duration-300 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm peer-placeholder-shown:text-brand-navy/40 peer-focus:-top-5 peer-focus:text-[10px] peer-focus:text-brand-cyan"
-                      >
-                        Last Name
-                      </label>
-                      <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-brand-teal to-brand-cyan transition-all duration-500 peer-focus:w-full" />
-                    </motion.div>
-                  </div>
-
-                  <motion.div variants={itemVariants} className="relative group">
-                    <input 
-                      type="email" 
-                      id="email"
-                      required
-                      className="peer w-full bg-transparent border-b border-brand-navy/10 pb-3 text-brand-navy focus:outline-none text-lg md:text-xl font-light tracking-wide placeholder-transparent"
-                      placeholder="Email Address"
-                    />
-                    <label 
-                      htmlFor="email"
-                      className="absolute left-0 top-0 text-brand-navy/40 text-[10px] font-mono uppercase tracking-widest transition-all duration-300 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm peer-placeholder-shown:text-brand-navy/40 peer-focus:-top-5 peer-focus:text-[10px] peer-focus:text-brand-cyan"
-                    >
-                      Email Address
-                    </label>
-                    <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-brand-teal to-brand-cyan transition-all duration-500 peer-focus:w-full" />
-                  </motion.div>
-
-                  <motion.div variants={itemVariants} className="relative group">
-                    <input 
-                      type="tel" 
-                      id="phone"
-                      required
-                      className="peer w-full bg-transparent border-b border-brand-navy/10 pb-3 text-brand-navy focus:outline-none text-lg md:text-xl font-light tracking-wide placeholder-transparent"
-                      placeholder="Phone Number"
-                    />
-                    <label 
-                      htmlFor="phone"
-                      className="absolute left-0 top-0 text-brand-navy/40 text-[10px] font-mono uppercase tracking-widest transition-all duration-300 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm peer-placeholder-shown:text-brand-navy/40 peer-focus:-top-5 peer-focus:text-[10px] peer-focus:text-brand-cyan"
-                    >
-                      Phone Number
-                    </label>
-                    <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-brand-teal to-brand-cyan transition-all duration-500 peer-focus:w-full" />
-                  </motion.div>
-
-                  <motion.div variants={itemVariants} className="relative group pt-4">
-                    <textarea 
-                      id="brief"
-                      rows={3}
-                      required
-                      className="peer w-full bg-transparent border-b border-brand-navy/10 pb-3 text-brand-navy focus:outline-none text-lg md:text-xl font-light tracking-wide resize-none placeholder-transparent"
-                      placeholder="Project Brief"
-                    ></textarea>
-                    <label 
-                      htmlFor="brief"
-                      className="absolute left-0 top-0 text-brand-navy/40 text-[10px] font-mono uppercase tracking-widest transition-all duration-300 peer-placeholder-shown:top-5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-brand-navy/40 peer-focus:-top-5 peer-focus:text-[10px] peer-focus:text-brand-cyan"
-                    >
-                      Project Brief
-                    </label>
-                    <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-brand-teal to-brand-cyan transition-all duration-500 peer-focus:w-full" />
-                  </motion.div>
-
-                  <motion.div variants={itemVariants} className="pt-8 md:pt-12">
-                    <MagneticButton strength={0.3}>
-                      <button 
-                        type="button"
-                        className="group/btn relative px-8 md:px-10 py-5 md:py-6 bg-brand-navy text-white text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase flex items-center justify-between overflow-hidden rounded-full w-full sm:w-auto min-w-[280px] shadow-xl hover:shadow-2xl hover:shadow-brand-cyan/20 transition-all duration-500 border border-transparent"
-                      >
-                        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-brand-teal to-brand-cyan transform -translate-x-full group-hover/btn:translate-x-0 transition-transform duration-500 ease-[0.32,0.72,0,1]" />
-                        <span className="relative z-10 font-bold group-hover/btn:text-white transition-colors duration-500 pr-8">Transmit Brief</span>
-                        <div className="relative z-10 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover/btn:bg-white/20 transition-colors duration-500">
-                          <ArrowRight className="w-4 h-4 text-white transition-all duration-300 group-hover/btn:translate-x-1" />
+                {!isSubmitted ? (
+                  <>
+                    <div className="flex justify-between items-end mb-12">
+                      <h3 className="text-[clamp(2.5rem,4vw,3.5rem)] font-heading font-extrabold text-brand-navy tracking-tight leading-none">
+                        Submit <br className="hidden md:block" /><span className="text-brand-gold">Specification</span>
+                      </h3>
+                      <div className="text-brand-navy/30 font-mono text-sm tracking-widest flex flex-col items-end">
+                        <span>Step {step}</span>
+                        <div className="flex gap-1 mt-2">
+                          {[1, 2, 3].map((s) => (
+                            <div key={s} className={`h-1 rounded-full transition-all duration-500 ${s === step ? 'w-8 bg-brand-cyan' : s < step ? 'w-4 bg-brand-teal/50' : 'w-4 bg-brand-navy/10'}`} />
+                          ))}
                         </div>
-                      </button>
-                    </MagneticButton>
-                  </motion.div>
+                      </div>
+                    </div>
+                    
+                    <form onSubmit={(e) => e.preventDefault()} className="space-y-8 md:space-y-12">
+                      <AnimatePresence mode="wait">
+                        {step === 1 && (
+                          <motion.div 
+                            key="step1"
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.4 }}
+                            className="space-y-12"
+                          >
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+                              <div className="relative group">
+                                <input 
+                                  type="text" 
+                                  id="firstName"
+                                  value={formData.firstName}
+                                  onChange={(e) => {
+                                    setFormData({ ...formData, firstName: e.target.value });
+                                    if (errors.firstName) setErrors({ ...errors, firstName: undefined });
+                                  }}
+                                  className="peer w-full bg-transparent border-b border-brand-navy/10 pb-3 text-brand-navy focus:outline-none text-lg md:text-xl font-light tracking-wide placeholder-transparent"
+                                  placeholder="First Name"
+                                />
+                                <label 
+                                  htmlFor="firstName"
+                                  className="absolute left-0 top-0 text-brand-navy/40 text-[10px] font-mono uppercase tracking-widest transition-all duration-300 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm peer-placeholder-shown:text-brand-navy/40 peer-focus:-top-5 peer-focus:text-[10px] peer-focus:text-brand-cyan"
+                                >
+                                  First Name
+                                </label>
+                                <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-brand-teal to-brand-cyan transition-all duration-500 peer-focus:w-full" />
+                                {errors.firstName && <span className="absolute -bottom-6 left-0 text-red-500 text-xs">{errors.firstName}</span>}
+                              </div>
+                              
+                              <div className="relative group">
+                                <input 
+                                  type="text" 
+                                  id="lastName"
+                                  value={formData.lastName}
+                                  onChange={(e) => {
+                                    setFormData({ ...formData, lastName: e.target.value });
+                                    if (errors.lastName) setErrors({ ...errors, lastName: undefined });
+                                  }}
+                                  className="peer w-full bg-transparent border-b border-brand-navy/10 pb-3 text-brand-navy focus:outline-none text-lg md:text-xl font-light tracking-wide placeholder-transparent"
+                                  placeholder="Last Name"
+                                />
+                                <label 
+                                  htmlFor="lastName"
+                                  className="absolute left-0 top-0 text-brand-navy/40 text-[10px] font-mono uppercase tracking-widest transition-all duration-300 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm peer-placeholder-shown:text-brand-navy/40 peer-focus:-top-5 peer-focus:text-[10px] peer-focus:text-brand-cyan"
+                                >
+                                  Last Name
+                                </label>
+                                <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-brand-teal to-brand-cyan transition-all duration-500 peer-focus:w-full" />
+                                {errors.lastName && <span className="absolute -bottom-6 left-0 text-red-500 text-xs">{errors.lastName}</span>}
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
 
-                </motion.form>
+                        {step === 2 && (
+                          <motion.div 
+                            key="step2"
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.4 }}
+                            className="space-y-12"
+                          >
+                            <div className="relative group">
+                              <input 
+                                type="email" 
+                                id="email"
+                                value={formData.email}
+                                onChange={(e) => {
+                                  setFormData({ ...formData, email: e.target.value });
+                                  if (errors.email) setErrors({ ...errors, email: undefined });
+                                }}
+                                className="peer w-full bg-transparent border-b border-brand-navy/10 pb-3 text-brand-navy focus:outline-none text-lg md:text-xl font-light tracking-wide placeholder-transparent"
+                                placeholder="Email Address"
+                              />
+                              <label 
+                                htmlFor="email"
+                                className="absolute left-0 top-0 text-brand-navy/40 text-[10px] font-mono uppercase tracking-widest transition-all duration-300 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm peer-placeholder-shown:text-brand-navy/40 peer-focus:-top-5 peer-focus:text-[10px] peer-focus:text-brand-cyan"
+                              >
+                                Email Address
+                              </label>
+                              <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-brand-teal to-brand-cyan transition-all duration-500 peer-focus:w-full" />
+                              {errors.email && <span className="absolute -bottom-6 left-0 text-red-500 text-xs">{errors.email}</span>}
+                            </div>
+
+                            <div className="relative group">
+                              <input 
+                                type="tel" 
+                                id="phone"
+                                value={formData.phone}
+                                onChange={(e) => {
+                                  setFormData({ ...formData, phone: e.target.value });
+                                  if (errors.phone) setErrors({ ...errors, phone: undefined });
+                                }}
+                                className="peer w-full bg-transparent border-b border-brand-navy/10 pb-3 text-brand-navy focus:outline-none text-lg md:text-xl font-light tracking-wide placeholder-transparent"
+                                placeholder="Phone Number"
+                              />
+                              <label 
+                                htmlFor="phone"
+                                className="absolute left-0 top-0 text-brand-navy/40 text-[10px] font-mono uppercase tracking-widest transition-all duration-300 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm peer-placeholder-shown:text-brand-navy/40 peer-focus:-top-5 peer-focus:text-[10px] peer-focus:text-brand-cyan"
+                              >
+                                Phone Number
+                              </label>
+                              <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-brand-teal to-brand-cyan transition-all duration-500 peer-focus:w-full" />
+                              {errors.phone && <span className="absolute -bottom-6 left-0 text-red-500 text-xs">{errors.phone}</span>}
+                            </div>
+                          </motion.div>
+                        )}
+
+                        {step === 3 && (
+                          <motion.div 
+                            key="step3"
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.4 }}
+                            className="space-y-12"
+                          >
+                            <div className="relative group pt-4">
+                              <textarea 
+                                id="brief"
+                                rows={4}
+                                value={formData.brief}
+                                onChange={(e) => {
+                                  setFormData({ ...formData, brief: e.target.value });
+                                  if (errors.brief) setErrors({ ...errors, brief: undefined });
+                                }}
+                                className="peer w-full bg-transparent border-b border-brand-navy/10 pb-3 text-brand-navy focus:outline-none text-lg md:text-xl font-light tracking-wide resize-none placeholder-transparent"
+                                placeholder="Project Brief"
+                              ></textarea>
+                              <label 
+                                htmlFor="brief"
+                                className="absolute left-0 top-0 text-brand-navy/40 text-[10px] font-mono uppercase tracking-widest transition-all duration-300 peer-placeholder-shown:top-5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-brand-navy/40 peer-focus:-top-5 peer-focus:text-[10px] peer-focus:text-brand-cyan"
+                              >
+                                Project Brief
+                              </label>
+                              <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-brand-teal to-brand-cyan transition-all duration-500 peer-focus:w-full" />
+                              {errors.brief && <span className="absolute -bottom-6 left-0 text-red-500 text-xs">{errors.brief}</span>}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+
+                      <div className="pt-12 flex items-center justify-between">
+                        {step > 1 ? (
+                          <button 
+                            type="button" 
+                            onClick={handlePrev}
+                            className="text-brand-navy/40 hover:text-brand-cyan text-xs font-bold tracking-widest uppercase transition-colors flex items-center gap-2"
+                          >
+                            <ArrowLeft className="w-4 h-4" /> Back
+                          </button>
+                        ) : (
+                          <div />
+                        )}
+
+                        <MagneticButton strength={0.3}>
+                          <button 
+                            type="button"
+                            onClick={handleNext}
+                            className={`group/btn relative px-8 md:px-10 py-4 md:py-5 bg-brand-navy text-white text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase flex items-center justify-center gap-4 overflow-hidden rounded-full shadow-xl hover:shadow-2xl hover:shadow-brand-cyan/20 transition-all duration-500 border border-transparent ${isSubmitting ? 'opacity-80 pointer-events-none' : ''}`}
+                          >
+                            <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-brand-teal to-brand-cyan transform -translate-x-full group-hover/btn:translate-x-0 transition-transform duration-500 ease-[0.32,0.72,0,1]" />
+                            <span className="relative z-10 font-bold group-hover/btn:text-white transition-colors duration-500">
+                              {isSubmitting ? 'Processing...' : step === 3 ? 'Transmit Brief' : 'Continue'}
+                            </span>
+                            {!isSubmitting && (
+                              <div className="relative z-10 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover/btn:bg-white/20 transition-colors duration-500">
+                                <ArrowRight className="w-4 h-4 text-white transition-all duration-300 group-hover/btn:translate-x-1" />
+                              </div>
+                            )}
+                          </button>
+                        </MagneticButton>
+                      </div>
+                    </form>
+                  </>
+                ) : (
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="flex flex-col items-center justify-center text-center py-20"
+                  >
+                    <div className="w-20 h-20 rounded-full bg-brand-cyan/10 flex items-center justify-center mb-8">
+                      <Check className="w-10 h-10 text-brand-cyan" />
+                    </div>
+                    <h3 className="text-3xl md:text-4xl font-heading font-extrabold text-brand-navy mb-4 tracking-tight">
+                      Brief Received.
+                    </h3>
+                    <p className="text-brand-navy/60 font-light text-lg leading-relaxed max-w-sm mx-auto">
+                      Our engineering desk will evaluate your requirements and reach out within 24 hours.
+                    </p>
+                  </motion.div>
+                )}
               </div>
             </motion.div>
 

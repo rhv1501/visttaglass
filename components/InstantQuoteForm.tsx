@@ -5,10 +5,32 @@ import { ArrowRight, Check } from "lucide-react";
 
 export default function InstantQuoteForm({ serviceName }: { serviceName: string }) {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({ name: "", phone: "", details: "" });
+  const [errors, setErrors] = useState<Partial<typeof formData>>({});
+
+  const validate = () => {
+    const newErrors: Partial<typeof formData> = {};
+    let isValid = true;
+    if (!formData.name.trim()) { newErrors.name = "Name is required"; isValid = false; }
+    
+    const phoneRegex = /^\+?[\d\s-]{10,}$/;
+    if (!formData.phone.trim()) { newErrors.phone = "Phone is required"; isValid = false; }
+    else if (!phoneRegex.test(formData.phone)) { newErrors.phone = "Invalid phone format"; isValid = false; }
+    
+    setErrors(newErrors);
+    return isValid;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setTimeout(() => setSubmitted(true), 1000);
+    if (validate()) {
+      setIsSubmitting(true);
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setSubmitted(true);
+      }, 1000);
+    }
   };
 
   if (submitted) {
@@ -43,33 +65,50 @@ export default function InstantQuoteForm({ serviceName }: { serviceName: string 
             <input 
               type="text" 
               id="name"
+              value={formData.name}
+              onChange={(e) => {
+                setFormData({ ...formData, name: e.target.value });
+                if (errors.name) setErrors({ ...errors, name: undefined });
+              }}
               required
               placeholder="Full Name"
               className="w-full bg-transparent border-b border-white/20 pb-4 text-white focus:outline-none focus:border-brand-teal transition-colors placeholder:text-white/30 text-sm font-medium tracking-wide"
             />
+            {errors.name && <span className="absolute -bottom-5 left-0 text-red-400 text-xs">{errors.name}</span>}
           </div>
           <div className="relative">
             <input 
               type="tel" 
               id="phone"
+              value={formData.phone}
+              onChange={(e) => {
+                setFormData({ ...formData, phone: e.target.value });
+                if (errors.phone) setErrors({ ...errors, phone: undefined });
+              }}
               required
               placeholder="Phone Number"
               className="w-full bg-transparent border-b border-white/20 pb-4 text-white focus:outline-none focus:border-brand-teal transition-colors placeholder:text-white/30 text-sm font-medium tracking-wide"
             />
+            {errors.phone && <span className="absolute -bottom-5 left-0 text-red-400 text-xs">{errors.phone}</span>}
           </div>
           <div className="relative pt-4">
             <textarea 
               id="details"
               rows={3}
+              value={formData.details}
+              onChange={(e) => setFormData({ ...formData, details: e.target.value })}
               placeholder="Project dimensions, scope, or specific requirements..."
               className="w-full bg-transparent border-b border-white/20 pb-4 text-white focus:outline-none focus:border-brand-teal transition-colors placeholder:text-white/30 text-sm font-medium tracking-wide resize-none"
             ></textarea>
           </div>
           <button 
             type="submit"
-            className="w-full group/btn relative pt-8 pb-4 flex items-center justify-between border-b border-brand-teal hover:border-white transition-colors"
+            disabled={isSubmitting}
+            className={`w-full group/btn relative pt-8 pb-4 flex items-center justify-between border-b border-brand-teal hover:border-white transition-colors ${isSubmitting ? 'opacity-70 pointer-events-none' : ''}`}
           >
-            <span className="font-bold tracking-widest uppercase text-xs text-brand-teal group-hover/btn:text-white transition-colors">Submit Specification</span>
+            <span className="font-bold tracking-widest uppercase text-xs text-brand-teal group-hover/btn:text-white transition-colors">
+              {isSubmitting ? 'Submitting...' : 'Submit Specification'}
+            </span>
             <ArrowRight className="w-5 h-5 text-brand-teal group-hover/btn:text-white group-hover/btn:translate-x-2 transition-all duration-300" />
           </button>
         </form>
