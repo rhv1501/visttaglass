@@ -21,10 +21,10 @@ export default function ServicesIndexPage() {
               Our Solutions
             </span>
             <h1 className="text-[clamp(3.5rem,8vw,8rem)] font-heading font-extrabold text-brand-navy leading-[0.95] tracking-tight">
-              Premium Glass <br /> <span className="text-brand-gold">Solutions.</span>
+              Innovative Glass <br /> <span className="text-brand-gold">Solutions.</span>
             </h1>
             <p className="mt-8 text-[clamp(1.2rem,2vw,1.5rem)] text-brand-navy/70 max-w-2xl font-light leading-relaxed">
-              We specialize in the supply and installation of interior and architectural glass solutions for residential and commercial projects. From site measurement to fabrication and installation, we ensure professional service and timely completion.
+              We specialize in the supply and installation of premium interior and architectural glass solutions for residential and commercial projects. From precise site measurements and custom fabrication to professional installation, we deliver exceptional craftsmanship, reliable service, and on-time project completion.
             </p>
           </div>
 

@@ -45,7 +45,7 @@ export default function ServicesShowcase() {
               Capabilities
             </span>
             <h2 className={`text-[clamp(2.5rem,6vw,5rem)] font-heading font-light leading-[1.05] tracking-tight transition-colors duration-500 ${hoveredIndex !== null ? 'text-white' : 'text-brand-navy'}`}>
-              Engineering Light <br /> &amp; <span className={hoveredIndex !== null ? 'text-brand-gold' : 'text-brand-cyan'}>Space.</span>
+              From Vision <br /> to <span className={hoveredIndex !== null ? 'text-brand-gold' : 'text-brand-cyan'}>Reality.</span>
             </h2>
           </div>
           <Link href="/services" className={`mt-8 md:mt-0 flex items-center gap-3 uppercase tracking-[0.1em] text-xs font-bold group transition-colors duration-500 ${hoveredIndex !== null ? 'text-white' : 'text-brand-navy'}`}>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { serviceCategories } from "@/data/services";
 
 export default function Footer() {
   return (
@@ -45,10 +46,13 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-6">Services</h4>
             <ul className="space-y-4 text-sm font-light">
-              <li><Link href="/aluminium-windows-chennai" className="text-white/50 hover:text-white transition-colors">Aluminium Systems</Link></li>
-              <li><Link href="/upvc-windows-chennai" className="text-white/50 hover:text-white transition-colors">uPVC Engineering</Link></li>
-              <li><Link href="/toughened-glass-chennai" className="text-white/50 hover:text-white transition-colors">Structural Glass</Link></li>
-              <li><Link href="/glass-partitions-chennai" className="text-white/50 hover:text-white transition-colors">Acoustic Partitions</Link></li>
+              {serviceCategories.map((category) => (
+                <li key={category.slug}>
+                  <Link href={`/services/${category.slug}`} className="text-white/50 hover:text-white transition-colors">
+                    {category.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           
@@ -57,7 +61,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm font-light text-white/50">
               <li>Door No.49, Old, Maddox St,</li>
               <li>Periyamedu, Choolai, Chennai</li>
-              <li className="pt-2"><a href="mailto:hello@visttaglass.com" className="hover:text-white transition-colors">hello@visttaglass.com</a></li>
+              <li className="pt-2"><a href="mailto:Sales@visttaglass.com" className="hover:text-white transition-colors">Sales@visttaglass.com</a></li>
             </ul>
           </div>
         </div>

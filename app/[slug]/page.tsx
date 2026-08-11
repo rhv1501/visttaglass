@@ -118,24 +118,24 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-start">
                     <span className="text-5xl font-heading font-extrabold text-brand-navy/10">01</span>
                     <div>
-                      <h3 className="text-2xl font-heading font-bold text-brand-navy mb-4">Precision Engineered</h3>
-                      <p className="text-brand-navy/70 leading-relaxed font-light text-lg">Every structural pane is measured and cut with laser accuracy, ensuring a flawless fit for high-end architectural tolerances.</p>
+                      <h3 className="text-2xl font-heading font-bold text-brand-navy mb-4">Consultation & Planning</h3>
+                      <p className="text-brand-navy/70 leading-relaxed font-light text-lg">Understanding your vision, evaluating the site, and recommending the most suitable glass solutions for your space.</p>
                     </div>
                   </div>
                   
                   <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-start">
                     <span className="text-5xl font-heading font-extrabold text-brand-navy/10">02</span>
                     <div>
-                      <h3 className="text-2xl font-heading font-bold text-brand-navy mb-4">Premium Global Sourcing</h3>
-                      <p className="text-brand-navy/70 leading-relaxed font-light text-lg">We source exclusively from world-renowned manufacturers, integrating high-grade German and European hardware systems.</p>
+                      <h3 className="text-2xl font-heading font-bold text-brand-navy mb-4">Precision Fabrication</h3>
+                      <p className="text-brand-navy/70 leading-relaxed font-light text-lg">Using premium glass and quality hardware, every component is fabricated to exact project specifications.</p>
                     </div>
                   </div>
 
                   <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-start">
                     <span className="text-5xl font-heading font-extrabold text-brand-navy/10">03</span>
                     <div>
-                      <h3 className="text-2xl font-heading font-bold text-brand-navy mb-4">Flawless Installation</h3>
-                      <p className="text-brand-navy/70 leading-relaxed font-light text-lg">Execution is everything. Our certified engineers handle complex installations with absolute clinical precision, guaranteeing acoustic and structural integrity.</p>
+                      <h3 className="text-2xl font-heading font-bold text-brand-navy mb-4">Seamless Installation</h3>
+                      <p className="text-brand-navy/70 leading-relaxed font-light text-lg">From delivery to final installation, every detail is executed with precision, ensuring exceptional quality, safety, and a flawless finish.</p>
                     </div>
                   </div>
                 </div>
@@ -151,11 +151,16 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <div className="mt-12 p-8 border border-brand-navy/10 bg-brand-offwhite">
                   <h4 className="text-sm font-bold uppercase tracking-widest text-brand-navy mb-4">Direct Inquiry</h4>
                   <p className="text-brand-navy/60 font-mono text-sm leading-relaxed mb-6">
-                    For architectural briefs and immediate commercial estimates, contact our engineering desk directly.
+                    Need a customized glass solution? Contact our team for expert guidance, project consultations, and competitive commercial quotations.
                   </p>
-                  <a href="tel:+919840396462" className="text-brand-teal font-heading text-2xl font-bold hover:text-brand-navy transition-colors">
-                    +91 98403 96462
-                  </a>
+                  <div className="flex flex-col gap-2">
+                    <a href="tel:+919840396462" className="text-brand-teal font-heading text-2xl font-bold hover:text-brand-navy transition-colors">
+                      +91 98403 96462
+                    </a>
+                    <a href="mailto:Sales@visttaglass.com" className="text-brand-navy/80 hover:text-brand-teal font-mono text-sm transition-colors break-all">
+                      Sales@visttaglass.com
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

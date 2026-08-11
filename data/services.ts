@@ -21,7 +21,7 @@ export const serviceCategories: ServiceCategory[] = [
     title: "Architectural Glass",
     slug: "architectural-glass",
     image: "/categories images/architectureglass.avif",
-    description: "High-performance glass solutions for structural and exterior applications.",
+    description: "Engineered for strength, performance, and modern aesthetics, our architectural glass solutions are designed for structural façades, exterior applications, and high-performance building envelopes. Explore our comprehensive range of specialized glass solutions below.",
     services: [
       {
         slug: "toughened-glass",
@@ -29,7 +29,7 @@ export const serviceCategories: ServiceCategory[] = [
         description: "High-strength toughened architectural glass for facades, doors, and structural glazing.",
         heading: "Structural Toughened Glass",
         serviceName: "Toughened Glass",
-        content: "Processed in advanced facilities, our toughened glass is up to 5 times stronger than standard annealed glass. We provide custom sizes and finishes for structural facades, frameless doors, and canopy systems.",
+        content: "High-strength, heat-treated safety glass engineered for modern architectural applications. Precision-manufactured and available in custom sizes and finishes, it delivers exceptional durability, clarity, and performance for structural façades, Entrance Door, glass canopies, glass railings, partitions, and other contemporary glass systems.",
         image: "/categories images/architectural/structural toughend.jpg"
       },
       {
@@ -38,7 +38,7 @@ export const serviceCategories: ServiceCategory[] = [
         description: "Secure, acoustic, and resilient laminated glass for high-traffic zones.",
         heading: "Laminated Safety Glass",
         serviceName: "Laminated Glass",
-        content: "Laminated glass provides maximum safety and sound insulation. Made by bonding two or more layers of glass with an interlayer, it holds together when shattered, making it ideal for skylights, railings, and security glazing.",
+        content: "Engineered for superior safety and sound insulation, laminated glass consists of two or more glass layers bonded with a durable interlayer. Even if the glass breaks, the interlayer holds the fragments together, minimizing injury and enhancing security. Perfect for skylights, glass roofs, canopies, facades, and other architectural applications.",
         image: "/categories images/architectural/safety glass.jpg"
       },
       {
@@ -52,11 +52,11 @@ export const serviceCategories: ServiceCategory[] = [
       },
       {
         slug: "insulated-glass",
-        title: "Insulated Glass Units (IGU)",
+        title: "DGU (Double Glazed Unit) Glass",
         description: "Energy-efficient double and triple glazing for optimal thermal performance.",
-        heading: "High-Performance Insulated Glass",
-        serviceName: "Insulated Glass",
-        content: "Reduce energy costs and enhance indoor comfort with our Insulated Glass Units (IGU). Designed to minimize heat transfer, they are perfect for energy-efficient commercial buildings and luxury residences.",
+        heading: "DGU (Double Glazed Unit) Glass",
+        serviceName: "DGU Glass",
+        content: "DGU Glass features two glass panes separated by an insulated air gap, providing excellent sound insulation and improved thermal performance. Widely used in windows, it helps reduce outside noise, enhances indoor comfort, and improves energy efficiency for both residential and commercial spaces.",
         image: "/categories images/architectural/inuslated glass unit.jpeg"
       }
     ]
@@ -73,7 +73,7 @@ export const serviceCategories: ServiceCategory[] = [
         description: "Vibrant and sleek painted glass for modern interiors and wall cladding.",
         heading: "Premium Back Painted Glass",
         serviceName: "Painted Glass",
-        content: "Add a splash of color to your spaces with our back painted glass. Highly durable and easy to clean, it's perfect for kitchen backsplashes, office writing boards, and feature walls.",
+        content: "Give your interiors a clean, modern, and vibrant look with our Premium Back Painted Glass. Its smooth, glossy finish is easy to clean, moisture-resistant, and built to last, making it an ideal choice for kitchen backsplashes, wardrobes, wall cladding, office Interiors, and feature walls.",
         image: "/categories images/interior/back painted.webp"
       },
       {

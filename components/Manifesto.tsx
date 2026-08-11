@@ -14,7 +14,7 @@ export default function Manifesto() {
               The Manifesto
             </span>
             <h2 className="text-3xl md:text-5xl font-heading font-light text-white leading-[1.1] tracking-tight">
-              Chennai&apos;s premier partner for visionary interior and architectural glass solutions.
+              Crafting Spaces That Inspire.
             </h2>
           </div>
 
@@ -26,7 +26,7 @@ export default function Manifesto() {
               transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
               className="text-[clamp(1.5rem,3vw,2.5rem)] font-heading font-medium text-white leading-snug mb-12"
             >
-              We don&apos;t just install glass; we engineer light, space, and structure. Our expertise spans high-performance aluminium and uPVC windows, toughened glass doors, elegant shower cubicles, seamless office partitions, structural railings, bespoke mirrors, and customized glass works—meticulously crafted for <span className="text-brand-gold">premium residential and commercial projects.</span>
+              We believe glass is more than a material—it&apos;s the element that defines how people experience a space. At Vistta Glass, we design, supply, and install complete interior and architectural glass solutions, seamlessly integrated with premium aluminium systems. From luxury residences to commercial landmarks, we design, supply, and install bespoke solutions that combine innovation, craftsmanship, and lasting performance.
             </motion.p>
             
             <motion.p 
@@ -34,9 +34,19 @@ export default function Manifesto() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.32, 0.72, 0, 1] }}
+              className="text-lg md:text-xl text-brand-silver leading-relaxed max-w-2xl font-light mb-6"
+            >
+              If it involves glass, Vistta Glass delivers it.
+            </motion.p>
+
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.32, 0.72, 0, 1] }}
               className="text-lg md:text-xl text-brand-silver leading-relaxed max-w-2xl font-light"
             >
-              Collaborating with leading architects, interior designers, and builders, we transform ambitious blueprints into flawless reality. We take full ownership of the process—from exact site measurements to precision fabrication and expert installation—ensuring zero compromises on quality. Based in Chennai, executing across Tamil Nadu, and supplying Pan India.
+              We partner with architects, interior designers, builders, and developers to transform bold ideas into enduring spaces. Every project is executed with precision—from detailed site surveys and engineering to fabrication and flawless installation. Based in Chennai, we deliver projects across Tamil Nadu and supply premium architectural glass solutions throughout India.
             </motion.p>
           </div>
 
