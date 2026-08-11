@@ -56,12 +56,12 @@ export default function Navbar() {
           {/* Logo */}
           <Link 
             href="/" 
-            className="relative z-[60] flex items-center"
+            className={`relative z-[60] flex items-center transition-opacity duration-300 ${menuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
           >
             <img 
               src="/logo.png" 
               alt="Vistta Glass" 
-              className={`h-16 md:h-20 w-auto object-contain transition-all duration-500 drop-shadow-[1px_2px_2px_rgba(0,0,0,0.25)] drop-shadow-[-1px_-1px_1px_rgba(255,255,255,0.6)] ${menuOpen ? "brightness-0 invert !drop-shadow-none" : ""}`}
+              className="h-16 md:h-20 w-auto object-contain transition-all duration-500 drop-shadow-[1px_2px_2px_rgba(0,0,0,0.25)] drop-shadow-[-1px_-1px_1px_rgba(255,255,255,0.6)]"
             />
           </Link>
 
