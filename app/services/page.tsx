@@ -11,8 +11,27 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesIndexPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Our Solutions & Services | Vistta Glass",
+    description: "Explore our premium interior and architectural glass solutions, categorized into Architectural Glass, Decorative Glass, and Glass Services.",
+    url: "https://visttaglass.com/services",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: serviceCategories.map((category, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: category.title,
+        description: category.description,
+        url: `https://visttaglass.com/services/${category.slug}`
+      }))
+    }
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main className="w-full pt-40 md:pt-56 pb-24 bg-brand-pastel min-h-screen">
         <div className="container mx-auto px-4 md:px-8">
           {/* Header */}
@@ -30,11 +49,13 @@ export default function ServicesIndexPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {serviceCategories.map((category, index) => (
-              <div key={category.slug} className="group relative overflow-hidden rounded-[2.5rem] bg-brand-pastelCard p-2 ring-1 ring-brand-navy/5 shadow-sm block hover:ring-brand-cyan/50 transition-all duration-700 flex flex-col h-full min-h-[500px]">
+              <article key={category.slug} className="group relative overflow-hidden rounded-[2.5rem] bg-brand-pastelCard p-2 ring-1 ring-brand-navy/5 shadow-sm block hover:ring-brand-cyan/50 transition-all duration-700 flex flex-col h-full min-h-[500px]">
                 <div className="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden bg-brand-navy/5 mb-2">
                   <img 
                     src={category.image} 
-                    alt={category.title}
+                    alt={`${category.title} Solutions - Vistta Glass`}
+                    loading={index === 0 ? "eager" : "lazy"}
+                    fetchPriority={index === 0 ? "high" : "auto"}
                     className="w-full h-full object-cover transition-transform duration-[1.2s] ease-[0.32,0.72,0,1] group-hover:scale-105 opacity-90 mix-blend-multiply group-hover:opacity-100 grayscale-[0.2] group-hover:grayscale-0"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
@@ -64,7 +85,7 @@ export default function ServicesIndexPage() {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>

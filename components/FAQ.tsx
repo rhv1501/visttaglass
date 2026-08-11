@@ -27,6 +27,23 @@ export default function FAQ() {
 
   return (
     <section className="w-full py-32 md:py-48 bg-brand-pastel border-t border-brand-navy/5">
+      <script 
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          })
+        }}
+      />
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
           
@@ -47,6 +64,7 @@ export default function FAQ() {
               <div key={index} className="border-b border-brand-navy/10">
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  aria-expanded={openIndex === index}
                   className="w-full py-8 text-left flex justify-between items-center group"
                 >
                   <h3 className={`text-xl md:text-2xl font-heading font-light pr-8 transition-colors ${openIndex === index ? "text-brand-navy" : "text-brand-navy/60 group-hover:text-brand-cyan"}`}>

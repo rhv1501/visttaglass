@@ -67,6 +67,30 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="w-full py-24 md:py-48 bg-brand-navy text-white relative overflow-hidden flex flex-col justify-center min-h-screen">
+      <script 
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": "https://visttaglass.com/#localbusiness",
+            "name": "Vistta Glass",
+            "review": testimonials.map(t => ({
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": t.author
+              },
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+              },
+              "reviewBody": t.quote
+            }))
+          })
+        }}
+      />
       
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] h-[90vw] md:w-[60vw] md:h-[60vw] bg-brand-cyan/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
@@ -127,6 +151,8 @@ export default function Testimonials() {
                   setDirection(idx > currentIndex ? 1 : -1);
                   setCurrentIndex(idx);
                 }}
+                aria-label={`Go to testimonial ${idx + 1}`}
+                aria-current={idx === currentIndex ? "true" : "false"}
                 className="group py-2 px-1 md:px-0"
               >
                 <div 

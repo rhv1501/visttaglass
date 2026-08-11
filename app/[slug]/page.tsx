@@ -41,28 +41,55 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     notFound();
   }
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: service.title,
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Vistta Glass",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Door No.49, Old, Maddox St, Periyamedu, Choolai",
-        addressLocality: "Chennai",
-        addressRegion: "Tamil Nadu",
-        postalCode: "600112",
-        addressCountry: "IN",
-      }
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: service.title,
+      provider: {
+        "@type": "LocalBusiness",
+        name: "Vistta Glass",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Door No.49, Old, Maddox St, Periyamedu, Choolai",
+          addressLocality: "Chennai",
+          addressRegion: "Tamil Nadu",
+          postalCode: "600112",
+          addressCountry: "IN",
+        }
+      },
+      description: service.description,
+      areaServed: {
+        "@type": "City",
+        name: "Chennai"
+      },
+      url: `https://visttaglass.com/${service.slug}`
     },
-    description: service.description,
-    areaServed: {
-      "@type": "City",
-      name: "Chennai"
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://visttaglass.com"
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Services",
+          item: "https://visttaglass.com/services"
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: service.title,
+          item: `https://visttaglass.com/${service.slug}`
+        }
+      ]
     }
-  };
+  ];
 
   return (
     <>
@@ -70,18 +97,19 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       
       <main className="w-full bg-brand-white min-h-screen">
-        
-        {/* Cinematic Hero */}
-        <div className="relative w-full h-[80vh] bg-[#0A1118] overflow-hidden">
-          <div className="absolute inset-0">
-            <img 
-              src={service.image} 
-              alt={service.serviceName} 
-              className="w-full h-[120%] object-cover opacity-60 mix-blend-luminosity transform -translate-y-10"
-              style={{ objectPosition: 'center' }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1118] via-[#0A1118]/40 to-transparent" />
-          </div>
+        <article>
+          {/* Cinematic Hero */}
+          <div className="relative w-full h-[80vh] bg-[#0A1118] overflow-hidden">
+            <div className="absolute inset-0">
+              <img 
+                src={service.image} 
+                alt={`${service.serviceName} - Architectural Glass Solutions by Vistta Glass`}
+                fetchPriority="high"
+                className="w-full h-[120%] object-cover opacity-60 mix-blend-luminosity transform -translate-y-10"
+                style={{ objectPosition: 'center' }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1118] via-[#0A1118]/40 to-transparent" />
+            </div>
           
           <div className="absolute bottom-0 left-0 w-full p-6 md:p-16">
             <div className="container mx-auto max-w-7xl">
@@ -144,7 +172,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </div>
 
             {/* Right Sticky Sidebar (Dark Form) */}
-            <div className="lg:col-span-5 relative">
+            <aside className="lg:col-span-5 relative">
               <div className="sticky top-32">
                 <InstantQuoteForm serviceName={service.serviceName} />
                 
@@ -163,10 +191,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   </div>
                 </div>
               </div>
-            </div>
+            </aside>
 
           </div>
         </div>
+        </article>
       </main>
       
       <Footer />

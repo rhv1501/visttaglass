@@ -130,6 +130,7 @@ export default function WhyChooseUs() {
                 >
                   <button
                     onClick={() => setActiveIndex(activeIndex === index ? -1 : index)}
+                    aria-expanded={activeIndex === index}
                     className="w-full py-8 md:py-12 flex items-center justify-between text-left group"
                   >
                     <div className="flex items-center gap-8 md:gap-16">

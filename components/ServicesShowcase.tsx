@@ -26,7 +26,7 @@ export default function ServicesShowcase() {
             >
               <img 
                 src={serviceCategories[hoveredIndex].image} 
-                alt="Service Background" 
+                alt={`${serviceCategories[hoveredIndex].title} - Architectural Glass Services`} 
                 className="w-full h-full object-cover grayscale-[0.2]"
               />
               <div className="absolute inset-0 bg-brand-navy/80 mix-blend-multiply" />
