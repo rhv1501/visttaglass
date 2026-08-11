@@ -22,14 +22,36 @@ export default function InstantQuoteForm({ serviceName }: { serviceName: string 
     return isValid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
       setIsSubmitting(true);
-      setTimeout(() => {
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            type: `Instant Quote - ${serviceName}`,
+            name: formData.name,
+            phone: formData.phone,
+            brief: formData.details
+          })
+        });
+        
+        if (response.ok) {
+          setSubmitted(true);
+        } else {
+          console.error("Submission failed");
+          alert("Failed to submit form. Please verify your configuration.");
+        }
+      } catch (error) {
+        console.error(error);
+        alert("An error occurred. Please try again.");
+      } finally {
         setIsSubmitting(false);
-        setSubmitted(true);
-      }, 1000);
+      }
     }
   };
 

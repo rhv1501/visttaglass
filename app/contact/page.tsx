@@ -78,12 +78,36 @@ export default function ContactPage() {
     }
   };
 
-  const submitForm = () => {
+  const submitForm = async () => {
     setIsSubmitting(true);
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'Contact Form',
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          brief: formData.brief
+        })
+      });
+      
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        console.error("Submission failed");
+        alert("Failed to submit form. Please verify your configuration.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("An error occurred. Please try again.");
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 1500);
+    }
   };
 
   return (
