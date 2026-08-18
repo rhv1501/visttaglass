@@ -30,7 +30,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Structural Toughened Glass",
         serviceName: "Toughened Glass",
         content: "High-strength, heat-treated safety glass engineered for modern architectural applications. Precision-manufactured and available in custom sizes and finishes, it delivers exceptional durability, clarity, and performance for structural façades, Entrance Door, glass canopies, glass railings, partitions, and other contemporary glass systems.",
-        image: "/categories images/architectural/structural toughend.jpg"
+        image: "/categories images/architectural/toughend-glass.webp"
       },
       {
         slug: "laminated-glass",
@@ -39,7 +39,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Laminated Safety Glass",
         serviceName: "Laminated Glass",
         content: "Engineered for superior safety and sound insulation, laminated glass consists of two or more glass layers bonded with a durable interlayer. Even if the glass breaks, the interlayer holds the fragments together, minimizing injury and enhancing security. Perfect for skylights, glass roofs, canopies, facades, and other architectural applications.",
-        image: "/categories images/architectural/safety glass.jpg"
+        image: "/categories images/architectural/laminated.webp"
       },
       {
         slug: "bend-glass",
@@ -48,7 +48,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Custom Curved Architectural Glass",
         serviceName: "Bend Glass",
         content: "Our custom bend glass adds fluid, organic forms to architectural projects. Ideal for panoramic windows, revolving doors, and bespoke facades, offering both aesthetic elegance and structural integrity.",
-        image: "/categories images/architectural/bent.webp"
+        image: "/categories images/architectural/curved.jpg"
       },
       {
         slug: "insulated-glass",
@@ -57,14 +57,14 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "DGU (Double Glazed Unit) Glass",
         serviceName: "DGU Glass",
         content: "DGU Glass features two glass panes separated by an insulated air gap, providing excellent sound insulation and improved thermal performance. Widely used in windows, it helps reduce outside noise, enhances indoor comfort, and improves energy efficiency for both residential and commercial spaces.",
-        image: "/categories images/architectural/inuslated glass unit.jpeg"
+        image: "/categories images/architectural/doubleglazed.jpeg"
       }
     ]
   },
   {
     title: "Decorative Glass",
     slug: "decorative-glass",
-    image: "/categories images/decorative.avif",
+    image: "/categories images/decorative.jpg",
     description: "Artistic and custom glass to elevate interior aesthetics.",
     services: [
       {
@@ -278,7 +278,7 @@ export const serviceCategories: ServiceCategory[] = [
   {
     title: "Aluminium Systems",
     slug: "aluminium-systems",
-    image: "/categories images/aluminium-systems.avif",
+    image: "/categories images/aluminium-systems.jpg",
     description: "Premium aluminium profiles, partitions, and sliding systems for modern spaces.",
     services: [
       {
@@ -288,7 +288,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Premium Kitchen Profiles",
         serviceName: "Kitchen Profiles",
         content: "Upgrade your kitchen cabinetry with our ultra-slim, high-strength aluminium profiles. Designed for seamless integration, they offer a clean, contemporary aesthetic while ensuring long-lasting durability for modular kitchen setups.",
-        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/aluminium systems/kitchen-profiles.webp"
       },
       {
         slug: "wardrobe-profiles",
@@ -297,7 +297,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Architectural Wardrobe Profiles",
         serviceName: "Wardrobe Profiles",
         content: "Create stunning, space-saving wardrobes with our advanced aluminium profiles. Available in both smooth sliding and traditional openable configurations, these systems provide a flawless finish and effortless operation for luxury bedroom interiors.",
-        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/aluminium systems/wardrobe-profiles.jpeg"
       },
       {
         slug: "aluminium-internal-partition",
@@ -306,7 +306,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Minimalist Internal Partitions",
         serviceName: "Aluminium Internal Partition",
         content: "Define your interior spaces without sacrificing natural light. Our slimline aluminium internal partitions offer a sleek, industrial-chic aesthetic perfect for modern office environments and open-plan residential layouts.",
-        image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop"
+        image: "/categories images/aluminium systems/internal-partitions.avif"
       },
       {
         slug: "telescopic-sliding-system",
@@ -315,7 +315,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Advanced Telescopic Sliding Systems",
         serviceName: "Telescopic Sliding System",
         content: "Maximize your space with our synchronized telescopic sliding systems. Engineered to stack multiple glass panels neatly to one side, this system is ideal for creating wide, uninterrupted walkways in commercial and premium residential spaces.",
-        image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop"
+        image: "/categories images/aluminium systems/telescopic.webp"
       },
       {
         slug: "syncro-sliding-system",
@@ -324,7 +324,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Synchronized Sliding Doors",
         serviceName: "Syncro Sliding System",
         content: "Experience the elegance of synchronized motion. When you open one door, the other opens simultaneously in the opposite direction. Perfect for grand conference rooms, master suites, and luxury retail entrances.",
-        image: "https://images.unsplash.com/photo-1541888042459-715569420dc8?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/aluminium systems/syncro.jpeg"
       },
       {
         slug: "bifolding-system",
@@ -333,7 +333,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Architectural Bifolding Systems",
         serviceName: "Bifolding System",
         content: "Completely open up your living space to the outdoors. Our premium bifolding systems accordion-fold away seamlessly, offering high thermal performance, weather resistance, and panoramic views when fully open.",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/aluminium systems/bifolding.jpeg"
       },
       {
         slug: "exterior-windows-systems",
@@ -342,7 +342,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Premium Exterior Window Systems",
         serviceName: "Exterior Windows Systems",
         content: "Engineered for superior weather resistance and thermal efficiency, our exterior aluminium window systems provide sleek sightlines and robust security, making them the ultimate choice for contemporary architectural facades.",
-        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+        image: "/categories images/aluminium systems/exterior-window.webp"
       },
       {
         slug: "aluminium-shower-cubicle",
@@ -360,7 +360,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Architectural Aluminium Railings",
         serviceName: "Aluminium Railing",
         content: "Secure your balconies and staircases with our heavy-duty aluminium railing systems. Offering unparalleled structural integrity and a rust-free lifespan, they provide a clean, modern edge to any exterior or interior.",
-        image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/aluminium systems/railing.jpeg"
       },
       {
         slug: "aluminium-louver-doors",
@@ -369,7 +369,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Functional Aluminium Louver Doors",
         serviceName: "Aluminium Louver Doors",
         content: "Ensure continuous airflow while maintaining privacy and security. Our precision-engineered aluminium louver doors are perfect for utility rooms, HVAC enclosures, and striking architectural exterior accents.",
-        image: "https://images.unsplash.com/photo-1599696848652-f0ff23bc911f?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/aluminium systems/louver.jpeg"
       },
       {
         slug: "aluminium-french-windows",
@@ -378,7 +378,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Modern Aluminium French Windows",
         serviceName: "Aluminium French Windows",
         content: "Bring timeless elegance into the modern era. Our aluminium French windows offer the classic divided-light aesthetic combined with the strength, slim profiles, and energy efficiency of contemporary aluminium extrusion.",
-        image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop"
+        image: "/categories images/aluminium systems/french-door.avif"
       },
       {
         slug: "aluminium-pocket-sliding-door",
@@ -387,7 +387,7 @@ export const serviceCategories: ServiceCategory[] = [
         heading: "Hidden Pocket Sliding Doors",
         serviceName: "Aluminium Pocket Sliding Door",
         content: "Maximize your floor plan with doors that vanish entirely into the wall. Our aluminium pocket sliding systems utilize premium track hardware for smooth, silent operation, creating wide-open transitions between rooms.",
-        image: "https://images.unsplash.com/photo-1541888042459-715569420dc8?q=80&w=2070&auto=format&fit=crop"
+        image: "/categories images/aluminium systems/pocket-sliding.jpg"
       }
     ]
   }

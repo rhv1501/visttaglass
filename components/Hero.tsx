@@ -82,7 +82,7 @@ export default function Hero() {
           className="max-w-[90vw] md:max-w-2xl mx-auto"
         >
           <p className="text-[15px] md:text-xl text-brand-navy/70 mb-12 md:mb-14 leading-relaxed font-light px-2 md:px-0">
-            Leading interior and architectural glass solutions provider in Chennai. We specialize in precision-finished aluminium windows, uPVC systems, structural glass, and bespoke installations for <span className="font-bold text-brand-navy">premium spaces.</span>
+            Interior or exterior. Residential or commercial. From bespoke designer glass to structural glazing and premium aluminium systems, we deliver complete solutions with precision, craftsmanship, and <span className="font-bold text-brand-navy">flawless installation.</span>
           </p>
         </motion.div>
 
